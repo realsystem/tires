@@ -1,10 +1,10 @@
 // Updated vehicle database with transfer case low and first gear ratios
 //
-// DATA SOURCE: vehicle-database.csv (easier to maintain than code)
+// DATA SOURCE: src/data/vehicle-database.csv (easier to maintain than code)
 // To integrate into CalculatorForm.jsx, use a CSV loader or convert to JSON at build time
 //
 // This JS file is kept for backwards compatibility and quick reference.
-// For updates, edit vehicle-database.csv instead.
+// For updates, edit src/data/vehicle-database.csv instead.
 
 const vehicleDatabase = {
   tacoma: [

@@ -4,12 +4,12 @@ This document explains the vehicle database structure and how to maintain it.
 
 ## Files
 
-- **vehicle-database.csv**: Main data source (CSV format for easy editing)
+- **src/data/vehicle-database.csv**: Main data source (CSV format for easy editing)
 - **vehicle-ratios-update.js**: JavaScript version (for backwards compatibility)
 
 ## CSV Structure
 
-The vehicle database is stored in `vehicle-database.csv` with the following columns:
+The vehicle database is stored in `src/data/vehicle-database.csv` with the following columns:
 
 | Column | Description | Example |
 |--------|-------------|---------|
@@ -24,7 +24,7 @@ The vehicle database is stored in `vehicle-database.csv` with the following colu
 
 ### Adding a New Vehicle
 
-1. Open `vehicle-database.csv` in a spreadsheet app (Excel, Google Sheets) or text editor
+1. Open `src/data/vehicle-database.csv` in a spreadsheet app (Excel, Google Sheets) or text editor
 2. Add a new row with all required columns
 3. Save the file
 4. Optionally update `vehicle-ratios-update.js` for backwards compatibility
@@ -36,7 +36,7 @@ tacoma,2025 Tacoma Trailhunter,265/70R18,4.30,2.566,3.538
 
 ### Editing Existing Vehicle
 
-1. Find the vehicle row in `vehicle-database.csv`
+1. Find the vehicle row in `src/data/vehicle-database.csv`
 2. Update the relevant column(s)
 3. Save the file
 
@@ -76,7 +76,7 @@ Add a build step to convert CSV to JSON:
 ```bash
 # Using a tool like csv2json
 npm install -g csv2json
-csv2json vehicle-database.csv > src/data/vehicles.json
+csv2json src/data/vehicle-database.csv > src/data/vehicles.json
 ```
 
 ### Option 2: Load CSV at Runtime
@@ -97,7 +97,7 @@ Papa.parse(csvFile, {
 
 ### Option 3: Manual Sync
 
-1. Edit `vehicle-database.csv`
+1. Edit `src/data/vehicle-database.csv`
 2. Manually update `vehicle-ratios-update.js`
 3. Integrate into `CalculatorForm.jsx`
 
