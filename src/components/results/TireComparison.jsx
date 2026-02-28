@@ -86,7 +86,6 @@ const TireComparison = ({ comparison }) => {
 
       <div className="key-takeaways">
         <div className="takeaway">
-          <span className="takeaway-icon">🎯</span>
           <div>
             <strong>Ground Clearance Gain:</strong>{' '}
             {formatChange(differences.groundClearance.inches)}

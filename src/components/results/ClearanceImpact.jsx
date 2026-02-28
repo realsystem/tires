@@ -10,7 +10,6 @@ const ClearanceImpact = ({ clearance, differences }) => {
 
       <div className="clearance-grid">
         <div className="clearance-item positive">
-          <div className="clearance-icon">⬆️</div>
           <div className="clearance-content">
             <h4>Ground Clearance Gain</h4>
             <p className="clearance-value">
