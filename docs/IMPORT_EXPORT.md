@@ -64,7 +64,8 @@ After calculating a tire comparison, you can export your results in three format
 **Format**:
 ```
 ═══════════════════════════════════════════════════
-  OFF-ROAD TIRE CALCULATOR - RESULTS REPORT
+  OFFROAD TIRE & GEAR RATIO ENGINEERING TOOL
+               RESULTS REPORT
 ═══════════════════════════════════════════════════
 
 Export Date: 2/27/2026, 10:30:15 AM
@@ -324,7 +325,7 @@ For developers or advanced users, JSON files contain:
     "advisory": { ... }
   },
   "metadata": {
-    "appName": "Off-Road Tire Calculator",
+    "appName": "Offroad Tire & Gear Ratio Engineering Tool",
     "appVersion": "1.0"
   }
 }

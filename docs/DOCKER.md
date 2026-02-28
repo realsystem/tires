@@ -1,4 +1,4 @@
-# Docker Guide - Off-Road Tire Calculator
+# Docker Guide - Offroad Tire & Gear Ratio Engineering Tool
 
 Complete guide for running the tire calculator with Docker.
 

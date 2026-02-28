@@ -1,6 +1,6 @@
 # Real-World Build Examples
 
-Detailed scenarios demonstrating the Off-Road Tire Calculator with actual build configurations.
+Detailed scenarios demonstrating the Offroad Tire & Gear Ratio Engineering Tool with actual build configurations.
 
 ---
 

@@ -1,4 +1,4 @@
-# Multi-stage build for production-ready Off-Road Tire Calculator
+# Multi-stage build for production-ready Offroad Tire & Gear Ratio Engineering Tool
 
 # Stage 1: Build the application
 FROM node:18-alpine AS builder

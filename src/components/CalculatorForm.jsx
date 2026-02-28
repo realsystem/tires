@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAvailableGearRatios, getUseCaseProfiles } from '../engine/regearEngine';
+import { getSuspensionType, getAvailableGearRatiosForVehicle, getAllSuspensionTypes } from '../engine/vehicleConfigData';
 import './CalculatorForm.css';
 
 const CalculatorForm = ({ onCalculate, onImport }) => {
@@ -14,6 +15,7 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
     firstGearRatio: '4.0',
     intendedUse: 'weekend_trail',
     suspensionType: 'ifs',
+    vehicleCategory: '', // Track selected vehicle category for filtering
     // Optional advanced tire specs
     currentTireWeight: '',
     newTireWeight: '',
@@ -52,27 +54,39 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
   const useCaseProfiles = getUseCaseProfiles();
   const gearRatios = getAvailableGearRatios();
 
-  // Organize gear ratios by common vehicle platforms
-  const commonTacomaRatios = [3.73, 3.909, 4.10, 4.30];
-  const commonJeepRatios = [3.21, 3.73, 4.10, 4.56, 4.88, 5.13];
-  const allOtherRatios = gearRatios.filter(
-    r => !commonTacomaRatios.includes(r) && !commonJeepRatios.includes(r)
-  );
-
   // Popular off-road vehicles with factory tire sizes (VERIFIED from manufacturer specs)
   const vehicleDatabase = {
     tacoma: [
+      { label: '1995-2004 Tacoma 4cyl 4x4', tire: '225/75R15', gear: '4.10' },
+      { label: '1995-2004 Tacoma V6 4x4 Manual', tire: '225/75R15', gear: '3.58' },
+      { label: '2000-2004 Tacoma V6 4x4 Auto', tire: '265/70R16', gear: '4.10' },
+      { label: '2005-2015 Tacoma PreRunner V6', tire: '265/65R17', gear: '3.73' },
+      { label: '2005-2015 Tacoma TRD Sport V6', tire: '265/65R17', gear: '3.73' },
+      { label: '2005-2015 Tacoma TRD Off-Road', tire: '265/70R16', gear: '4.10' },
+      { label: '2016-2023 Tacoma SR', tire: '245/75R16', gear: '3.73' },
       { label: '2016-2023 Tacoma SR5', tire: '245/75R16', gear: '3.73' },
       { label: '2016-2023 Tacoma TRD Sport', tire: '265/65R17', gear: '3.73' },
       { label: '2016-2023 Tacoma TRD Off-Road', tire: '265/70R16', gear: '3.909' },
       { label: '2016-2023 Tacoma TRD Pro', tire: '265/70R16', gear: '4.10' },
-      { label: '2024+ Tacoma TRD Pro', tire: '265/70R18', gear: '4.30' }
+      { label: '2016-2023 Tacoma Limited', tire: '265/60R18', gear: '3.909' },
+      { label: '2024+ Tacoma TRD Sport', tire: '265/70R17', gear: '4.30' },
+      { label: '2024+ Tacoma TRD Off-Road', tire: '265/70R17', gear: '4.30' },
+      { label: '2024+ Tacoma TRD Pro', tire: '265/70R18', gear: '4.30' },
+      { label: '2024+ Tacoma Trailhunter', tire: '265/70R18', gear: '4.30' }
     ],
     fourrunner: [
-      { label: '2010-2024 4Runner SR5', tire: '265/70R17', gear: '4.10' },
-      { label: '2010-2024 4Runner TRD Off-Road', tire: '265/70R17', gear: '4.10' },
-      { label: '2010-2024 4Runner TRD Pro', tire: '265/70R17', gear: '4.10' },
-      { label: '2010-2024 4Runner Limited', tire: '245/60R20', gear: '4.10' }
+      { label: '1996-2002 4Runner SR5 (3rd Gen)', tire: '265/70R16', gear: '4.10' },
+      { label: '1996-2002 4Runner Limited (3rd Gen)', tire: '265/70R16', gear: '3.73' },
+      { label: '2003-2009 4Runner SR5 (4th Gen)', tire: '265/70R16', gear: '4.10' },
+      { label: '2003-2009 4Runner Sport Edition', tire: '265/65R17', gear: '4.10' },
+      { label: '2003-2009 4Runner Limited (4th Gen)', tire: '265/65R17', gear: '3.73' },
+      { label: '2010-2013 4Runner SR5 (5th Gen)', tire: '265/70R17', gear: '4.10' },
+      { label: '2010-2013 4Runner Trail Edition', tire: '265/70R17', gear: '4.10' },
+      { label: '2010-2024 4Runner Limited', tire: '245/60R20', gear: '3.73' },
+      { label: '2014-2024 4Runner TRD Off-Road', tire: '265/70R17', gear: '4.10' },
+      { label: '2015-2024 4Runner TRD Pro', tire: '265/70R17', gear: '4.10' },
+      { label: '2020-2024 4Runner Venture Edition', tire: '265/70R17', gear: '4.10' },
+      { label: '2020-2024 4Runner TRD Off-Road Premium', tire: '265/70R17', gear: '4.10' }
     ],
     jeep: [
       { label: 'JK Wrangler Sport/Sahara (2007-2018)', tire: '255/75R17', gear: '3.73' },
@@ -101,7 +115,9 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
     ],
     ram: [
       { label: 'Ram 1500 Rebel (2019+)', tire: '285/70R17', gear: '3.92' },
-      { label: 'Ram 1500 TRX (2021+)', tire: '35x11.50R18', gear: '3.55' },
+      { label: 'Ram 1500 TRX (2021+)', tire: '35x11.50R18', gear: '3.55' }
+    ],
+    ram2500: [
       { label: 'Ram 2500 Power Wagon', tire: '285/70R17', gear: '4.10' }
     ],
     suzuki: [
@@ -121,6 +137,50 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
       { label: 'Bronco Badlands (2021+)', tire: '285/70R17', gear: '4.70' },
       { label: 'Bronco Wildtrak/Sasquatch (2021+)', tire: '315/70R17', gear: '4.70' },
       { label: 'Bronco Raptor (2022+)', tire: '37x12.50R17', gear: '4.70' }
+    ],
+    lexusgx: [
+      { label: 'GX470 (2003-2009)', tire: '265/65R17', gear: '4.30' },
+      { label: 'GX460 (2010-2023)', tire: '265/60R18', gear: '4.30' },
+      { label: 'GX460 Luxury (2010-2023)', tire: '265/60R18', gear: '4.30' }
+    ],
+    tundra: [
+      { label: '2000-2006 Tundra SR5 4x4', tire: '265/70R16', gear: '3.909' },
+      { label: '2000-2006 Tundra Limited 4x4', tire: '265/70R16', gear: '4.30' },
+      { label: '2007-2021 Tundra SR5', tire: '275/65R18', gear: '4.30' },
+      { label: '2007-2021 Tundra TRD Off-Road', tire: '275/65R18', gear: '4.30' },
+      { label: '2015-2021 Tundra TRD Pro', tire: '275/65R18', gear: '4.30' },
+      { label: '2022-2024 Tundra SR5', tire: '265/70R18', gear: '3.31' },
+      { label: '2022-2024 Tundra TRD Pro', tire: '285/65R18', gear: '3.31' }
+    ],
+    sequoia: [
+      { label: '2001-2007 Sequoia Limited 4x4', tire: 'P265/65R17', gear: '4.10' },
+      { label: '2005-2007 Sequoia Limited', tire: 'P265/65R17', gear: '4.10' },
+      { label: '2008-2021 Sequoia SR5', tire: 'P275/65R18', gear: '3.909' },
+      { label: '2008-2021 Sequoia Limited', tire: 'P275/55R20', gear: '3.909' },
+      { label: '2008-2021 Sequoia TRD Sport', tire: 'P275/55R20', gear: '4.30' },
+      { label: '2023-2024 Sequoia SR5', tire: 'P265/70R18', gear: '3.90' },
+      { label: '2023-2024 Sequoia TRD Pro', tire: '275/65R18', gear: '3.90' }
+    ],
+    t100: [
+      { label: '1993-1994 T100 4x4 V6 Manual', tire: '31x10.50R15', gear: '4.70' },
+      { label: '1995-1998 T100 4x4 V6 Manual', tire: '265/70R16', gear: '4.10' },
+      { label: '1995-1998 T100 4x4 V6 Auto', tire: '265/70R16', gear: '4.30' }
+    ],
+    pickup: [
+      { label: '1979-1985 Pickup 4cyl 4x4', tire: '225/75R15', gear: '4.10' },
+      { label: '1986-1995 Pickup 22RE 4x4', tire: '225/75R15', gear: '4.10' },
+      { label: '1986-1995 Pickup V6 4x4', tire: '31x10.50R15', gear: '4.56' }
+    ],
+    cherokee: [
+      { label: '1984-2001 Cherokee XJ 4.0L', tire: '215/75R15', gear: '3.55' },
+      { label: '1984-2001 Cherokee XJ Sport', tire: '225/75R15', gear: '3.73' }
+    ],
+    grandcherokee: [
+      { label: '1999-2004 Grand Cherokee WJ Laredo', tire: '225/75R16', gear: '3.55' },
+      { label: '2005-2010 Grand Cherokee WK Limited', tire: '245/65R17', gear: '3.73' },
+      { label: '2011-2021 Grand Cherokee WK2 Laredo', tire: '245/60R20', gear: '3.45' },
+      { label: '2011-2021 Grand Cherokee WK2 Overland', tire: '265/60R18', gear: '3.45' },
+      { label: '2011-2021 Grand Cherokee WK2 Trailhawk', tire: '265/60R18', gear: '3.45' }
     ]
   };
 
@@ -139,17 +199,41 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
       else if (category === 'jeep') vehicleType = 'Jeep Wrangler';
       else if (category === 'gladiator') vehicleType = 'Jeep Gladiator';
       else if (category === 'bronco') vehicleType = 'Ford Bronco';
-      else if (category === 'raptor') vehicleType = 'Ford F-150';
+      else if (category === 'raptor') vehicleType = 'Ford F-150 Raptor';
       else if (category === 'landcruiser') vehicleType = 'Toyota Land Cruiser';
       else if (category === 'ram') vehicleType = 'Ram 1500';
+      else if (category === 'ram2500') vehicleType = 'Ram 2500';
       else if (category === 'landrover') vehicleType = 'Land Rover';
       else if (category === 'suzuki') vehicleType = 'Suzuki';
+      else if (category === 'lexusgx') vehicleType = 'Lexus GX';
+      else if (category === 'tundra') vehicleType = 'Toyota Tundra';
+      else if (category === 'sequoia') vehicleType = 'Toyota Sequoia';
+      else if (category === 't100') vehicleType = 'Toyota T100';
+      else if (category === 'pickup') vehicleType = 'Toyota Pickup';
+      else if (category === 'cherokee') vehicleType = 'Jeep Cherokee';
+      else if (category === 'grandcherokee') vehicleType = 'Jeep Grand Cherokee';
+      else if (category === 'ranger') vehicleType = 'Ford Ranger';
+      else if (category === 'f150') vehicleType = 'Ford F-150';
+      else if (category === 'f250') vehicleType = 'Ford F-250';
+      else if (category === 'colorado') vehicleType = 'Chevrolet Colorado';
+      else if (category === 'silverado1500') vehicleType = 'Chevrolet Silverado 1500';
+      else if (category === 'silverado2500') vehicleType = 'Chevrolet Silverado 2500HD';
+      else if (category === 'sierra1500') vehicleType = 'GMC Sierra 1500';
+      else if (category === 'sierra2500') vehicleType = 'GMC Sierra 2500HD';
+      else if (category === 'cj') vehicleType = 'Jeep CJ';
+      else if (category === 'yj') vehicleType = 'Jeep YJ Wrangler';
+      else if (category === 'tj') vehicleType = 'Jeep TJ Wrangler';
+
+      // Get vehicle-specific suspension type
+      const suspensionType = getSuspensionType(category);
 
       setFormData(prev => ({
         ...prev,
         currentTireSize: vehicle.tire,
         axleGearRatio: vehicle.gear,
-        vehicleType: vehicleType
+        vehicleType: vehicleType,
+        suspensionType: suspensionType,
+        vehicleCategory: category // Store category for filtering gear ratios
       }));
     }
   };
@@ -183,6 +267,15 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
             >
               <option value="">Manual entry / Other vehicle</option>
 
+              {/* Most Popular Off-Road Vehicles */}
+              <optgroup label="Jeep Wrangler (JK/JL)">
+                {vehicleDatabase.jeep.map((vehicle, i) => (
+                  <option key={i} value={`jeep-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
               <optgroup label="Toyota Tacoma">
                 {vehicleDatabase.tacoma.map((vehicle, i) => (
                   <option key={i} value={`tacoma-${i}`}>
@@ -194,14 +287,6 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
               <optgroup label="Toyota 4Runner">
                 {vehicleDatabase.fourrunner.map((vehicle, i) => (
                   <option key={i} value={`fourrunner-${i}`}>
-                    {vehicle.label} - {vehicle.tire}
-                  </option>
-                ))}
-              </optgroup>
-
-              <optgroup label="Jeep Wrangler">
-                {vehicleDatabase.jeep.map((vehicle, i) => (
-                  <option key={i} value={`jeep-${i}`}>
                     {vehicle.label} - {vehicle.tire}
                   </option>
                 ))}
@@ -223,9 +308,33 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
                 ))}
               </optgroup>
 
-              <optgroup label="Ford Raptor">
+              <optgroup label="Jeep TJ Wrangler (1997-2006)">
+                {vehicleDatabase.tj.map((vehicle, i) => (
+                  <option key={i} value={`tj-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Jeep YJ Wrangler (1987-1995)">
+                {vehicleDatabase.yj.map((vehicle, i) => (
+                  <option key={i} value={`yj-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Ford F-150 Raptor">
                 {vehicleDatabase.raptor.map((vehicle, i) => (
                   <option key={i} value={`raptor-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Jeep CJ Series (Classic)">
+                {vehicleDatabase.cj.map((vehicle, i) => (
+                  <option key={i} value={`cj-${i}`}>
                     {vehicle.label} - {vehicle.tire}
                   </option>
                 ))}
@@ -239,9 +348,124 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
                 ))}
               </optgroup>
 
-              <optgroup label="Ram Trucks">
+              <optgroup label="Chevrolet Colorado / ZR2">
+                {vehicleDatabase.colorado.map((vehicle, i) => (
+                  <option key={i} value={`colorado-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Ford Ranger">
+                {vehicleDatabase.ranger.map((vehicle, i) => (
+                  <option key={i} value={`ranger-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Lexus GX">
+                {vehicleDatabase.lexusgx.map((vehicle, i) => (
+                  <option key={i} value={`lexusgx-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Jeep Cherokee XJ (Classic)">
+                {vehicleDatabase.cherokee.map((vehicle, i) => (
+                  <option key={i} value={`cherokee-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Ram 1500">
                 {vehicleDatabase.ram.map((vehicle, i) => (
                   <option key={i} value={`ram-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              {/* Full-Size Trucks */}
+              <optgroup label="Chevrolet Silverado 1500">
+                {vehicleDatabase.silverado1500.map((vehicle, i) => (
+                  <option key={i} value={`silverado1500-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="GMC Sierra 1500">
+                {vehicleDatabase.sierra1500.map((vehicle, i) => (
+                  <option key={i} value={`sierra1500-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Ford F-150">
+                {vehicleDatabase.f150.map((vehicle, i) => (
+                  <option key={i} value={`f150-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Toyota Tundra">
+                {vehicleDatabase.tundra.map((vehicle, i) => (
+                  <option key={i} value={`tundra-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Toyota Sequoia">
+                {vehicleDatabase.sequoia.map((vehicle, i) => (
+                  <option key={i} value={`sequoia-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              {/* Heavy Duty Trucks */}
+              <optgroup label="Ram 2500/3500 HD">
+                {vehicleDatabase.ram2500.map((vehicle, i) => (
+                  <option key={i} value={`ram2500-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Ford F-250 Super Duty">
+                {vehicleDatabase.f250.map((vehicle, i) => (
+                  <option key={i} value={`f250-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Chevrolet Silverado 2500HD">
+                {vehicleDatabase.silverado2500.map((vehicle, i) => (
+                  <option key={i} value={`silverado2500-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="GMC Sierra 2500HD">
+                {vehicleDatabase.sierra2500.map((vehicle, i) => (
+                  <option key={i} value={`sierra2500-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              {/* SUVs & Specialty */}
+              <optgroup label="Jeep Grand Cherokee">
+                {vehicleDatabase.grandcherokee.map((vehicle, i) => (
+                  <option key={i} value={`grandcherokee-${i}`}>
                     {vehicle.label} - {vehicle.tire}
                   </option>
                 ))}
@@ -250,6 +474,23 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
               <optgroup label="Land Rover">
                 {vehicleDatabase.landrover.map((vehicle, i) => (
                   <option key={i} value={`landrover-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              {/* Classic Toyota */}
+              <optgroup label="Toyota T100">
+                {vehicleDatabase.t100.map((vehicle, i) => (
+                  <option key={i} value={`t100-${i}`}>
+                    {vehicle.label} - {vehicle.tire}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Toyota Pickup (Classic)">
+                {vehicleDatabase.pickup.map((vehicle, i) => (
+                  <option key={i} value={`pickup-${i}`}>
                     {vehicle.label} - {vehicle.tire}
                   </option>
                 ))}
@@ -334,32 +575,57 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
               >
                 <option value="">Not sure / Skip</option>
 
-                <optgroup label="Common Tacoma/4Runner Ratios">
-                  <option value="3.73">3.73 - Early models, MT, economy</option>
-                  <option value="3.909">3.909 - 2016+ TRD Off-Road Auto ⭐</option>
-                  <option value="4.10">4.10 - TRD Pro, strong acceleration</option>
-                  <option value="4.30">4.30 - Heavy duty, ideal for 35" tires</option>
-                </optgroup>
+                {formData.vehicleCategory && getAvailableGearRatiosForVehicle(formData.vehicleCategory).length > 0 ? (
+                  <>
+                    <optgroup label={`Factory ${formData.vehicleCategory.charAt(0).toUpperCase() + formData.vehicleCategory.slice(1)} Ratios`}>
+                      {getAvailableGearRatiosForVehicle(formData.vehicleCategory).map(ratio => (
+                        <option key={ratio} value={ratio}>
+                          {ratio === 3.909 ? ratio.toFixed(3) : ratio.toFixed(2)}
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="All Available Ratios">
+                      {gearRatios.map(ratio => (
+                        <option key={ratio} value={ratio}>
+                          {ratio === 3.909 ? `${ratio.toFixed(3)}` : ratio.toFixed(2)}
+                        </option>
+                      ))}
+                    </optgroup>
+                  </>
+                ) : (
+                  <>
+                    <optgroup label="Common Tacoma/4Runner Ratios">
+                      <option value="3.73">3.73 - Early models, MT, economy</option>
+                      <option value="3.909">3.909 - 2016+ TRD Off-Road Auto ⭐</option>
+                      <option value="4.10">4.10 - TRD Pro, strong acceleration</option>
+                      <option value="4.30">4.30 - Heavy duty, ideal for 35" tires</option>
+                    </optgroup>
 
-                <optgroup label="Common Jeep Wrangler Ratios">
-                  <option value="3.21">3.21 - JK Sport/Sahara MT (2007-2018)</option>
-                  <option value="3.45">3.45 - JL Sport/Sahara (2018+)</option>
-                  <option value="3.73">3.73 - JK Sport/Sahara AT (2007-2018)</option>
-                  <option value="4.10">4.10 - Rubicon (all generations)</option>
-                  <option value="4.56">4.56 - Regear for 35" tires</option>
-                  <option value="4.88">4.88 - Regear for 37" tires</option>
-                  <option value="5.13">5.13 - Regear for 37"+ tires</option>
-                </optgroup>
+                    <optgroup label="Common Jeep Wrangler Ratios">
+                      <option value="3.21">3.21 - JK Sport/Sahara MT (2007-2018)</option>
+                      <option value="3.45">3.45 - JL Sport/Sahara (2018+)</option>
+                      <option value="3.73">3.73 - JK Sport/Sahara AT (2007-2018)</option>
+                      <option value="4.10">4.10 - Rubicon (all generations)</option>
+                      <option value="4.56">4.56 - Regear for 35" tires</option>
+                      <option value="4.88">4.88 - Regear for 37" tires</option>
+                      <option value="5.13">5.13 - Regear for 37"+ tires</option>
+                    </optgroup>
 
-                <optgroup label="All Available Ratios">
-                  {gearRatios.map(ratio => (
-                    <option key={ratio} value={ratio}>
-                      {ratio === 3.909 ? `${ratio.toFixed(3)}` : ratio.toFixed(2)}
-                    </option>
-                  ))}
-                </optgroup>
+                    <optgroup label="All Available Ratios">
+                      {gearRatios.map(ratio => (
+                        <option key={ratio} value={ratio}>
+                          {ratio === 3.909 ? `${ratio.toFixed(3)}` : ratio.toFixed(2)}
+                        </option>
+                      ))}
+                    </optgroup>
+                  </>
+                )}
               </select>
-              <div className="input-hint">Found on differential tag or owner's manual. 3.909 is Tacoma's sweet spot ratio.</div>
+              <div className="input-hint">
+                {formData.vehicleCategory
+                  ? `Showing factory options for your ${formData.vehicleCategory}. Found on differential tag or owner's manual.`
+                  : 'Found on differential tag or owner\'s manual. 3.909 is Tacoma\'s sweet spot ratio.'}
+              </div>
             </div>
 
             <div className="form-group">
@@ -370,10 +636,17 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
                 value={formData.suspensionType}
                 onChange={handleChange}
               >
-                <option value="ifs">IFS (Independent Front Suspension)</option>
-                <option value="solid_axle">Solid Axle (Front & Rear)</option>
+                {getAllSuspensionTypes().map(type => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
               </select>
-              <div className="input-hint">Affects clearance and CV angle warnings</div>
+              <div className="input-hint">
+                {formData.vehicleCategory
+                  ? `Auto-set for your ${formData.vehicleCategory}. Affects clearance and CV angle warnings.`
+                  : 'Affects clearance and CV angle warnings'}
+              </div>
             </div>
           </div>
 

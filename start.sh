@@ -11,7 +11,8 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}========================================${NC}"
-echo -e "${BLUE}  Off-Road Tire Calculator${NC}"
+echo -e "${BLUE}  Offroad Tire & Gear Ratio${NC}"
+echo -e "${BLUE}       Engineering Tool${NC}"
 echo -e "${BLUE}========================================${NC}"
 echo ""
 

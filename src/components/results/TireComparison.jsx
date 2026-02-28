@@ -21,7 +21,7 @@ const TireComparison = ({ comparison }) => {
       new: `${newTire.diameter.toFixed(2)}"`,
       change: formatChange(differences.diameter.inches),
       changePct: formatPct(differences.diameter.percentage),
-      highlight: Math.abs(differences.diameter.percentage) > 5
+      highlight: differences.diameter.percentage !== 0 && Math.abs(differences.diameter.percentage) > 5
     },
     {
       label: 'Section Width',
@@ -29,7 +29,7 @@ const TireComparison = ({ comparison }) => {
       new: `${newTire.widthInches.toFixed(2)}"`,
       change: formatChange(differences.width.inches),
       changePct: formatPct(differences.width.percentage),
-      highlight: Math.abs(differences.width.percentage) > 10
+      highlight: differences.width.percentage !== 0 && Math.abs(differences.width.percentage) > 10
     },
     {
       label: 'Sidewall Height',

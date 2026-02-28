@@ -1,10 +1,10 @@
-# Makefile for Off-Road Tire Calculator
+# Makefile for Offroad Tire & Gear Ratio Engineering Tool
 # Quick commands for Docker operations
 
 .PHONY: help build run dev stop clean logs test
 
 help: ## Show this help message
-	@echo "Off-Road Tire Calculator - Docker Commands"
+	@echo "Offroad Tire & Gear Ratio Engineering Tool - Docker Commands"
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 

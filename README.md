@@ -1,4 +1,4 @@
-# Off-Road Tire Calculator
+# Offroad Tire & Gear Ratio Engineering Tool
 
 **Production-ready tire comparison calculator for serious 4x4 builds, overlanding, and off-road enthusiasts.**
 

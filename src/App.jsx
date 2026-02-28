@@ -215,7 +215,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1>Off-Road Tire Calculator</h1>
+          <h1>Offroad Tire & Gear Ratio Engineering Tool</h1>
           <p className="tagline">Tire analysis for serious 4x4 builds and overlanding</p>
         </div>
       </header>
