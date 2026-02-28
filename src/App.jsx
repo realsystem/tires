@@ -216,7 +216,7 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <div className="header-top">
-            <a href="https://overlandn.com" className="back-to-main">← Back to OverlandN.com</a>
+            <a href="https://overlandn.com" className="back-to-main">← Back to main page</a>
           </div>
           <h1>Offroad Tire & Gear Ratio Engineering Tool</h1>
           <p className="tagline">Tire analysis for serious 4x4 builds and overlanding</p>
