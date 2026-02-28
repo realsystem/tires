@@ -1,0 +1,405 @@
+[
+  {
+    "url": "/265-70r17-vs-285-75r17",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "priority": 1.0,
+    "category": "popular-comparison",
+    "description": "Most common Tacoma/4Runner upgrade"
+  },
+  {
+    "url": "/tacoma-265-70r17-to-285-75r17",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "vehicleType": "tacoma",
+    "priority": 1.0,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/tacoma-265-70r17-to-285-75r17-3-73-gears",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "gearRatio": "3.73",
+    "vehicleType": "tacoma",
+    "priority": 0.9,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/33-vs-35-tires",
+    "currentTire": "285/75R17",
+    "newTire": "35x12.50R17",
+    "priority": 0.95,
+    "category": "simplified-comparison"
+  },
+  {
+    "url": "/275-70r17-vs-285-75r17",
+    "currentTire": "275/70R17",
+    "newTire": "285/75R17",
+    "priority": 0.9,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/265-70r17-vs-285-70r17",
+    "currentTire": "265/70R17",
+    "newTire": "285/70R17",
+    "priority": 0.85,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/255-75r17-vs-285-75r17",
+    "currentTire": "255/75R17",
+    "newTire": "285/75R17",
+    "priority": 0.85,
+    "category": "popular-comparison",
+    "description": "Jeep Wrangler common upgrade"
+  },
+  {
+    "url": "/jeep-255-75r17-to-285-75r17",
+    "currentTire": "255/75R17",
+    "newTire": "285/75R17",
+    "vehicleType": "jeep",
+    "priority": 0.85,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/285-75r17-vs-35x12-50r17",
+    "currentTire": "285/75R17",
+    "newTire": "35x12.50R17",
+    "priority": 0.9,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/33x10-50r17-vs-35x12-50r17",
+    "currentTire": "33x10.50R17",
+    "newTire": "35x12.50R17",
+    "priority": 0.85,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/35x12-50r17-vs-37x12-50r17",
+    "currentTire": "35x12.50R17",
+    "newTire": "37x12.50R17",
+    "priority": 0.8,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/jeep-33x10-50r17-to-35x12-50r17",
+    "currentTire": "33x10.50R17",
+    "newTire": "35x12.50R17",
+    "vehicleType": "jeep",
+    "priority": 0.8,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/jeep-33x10-50r17-to-35x12-50r17-3-73-gears",
+    "currentTire": "33x10.50R17",
+    "newTire": "35x12.50R17",
+    "gearRatio": "3.73",
+    "vehicleType": "jeep",
+    "priority": 0.75,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/bronco-275-70r17-to-35x12-50r17",
+    "currentTire": "275/70R17",
+    "newTire": "35x12.50R17",
+    "vehicleType": "bronco",
+    "priority": 0.8,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/4runner-265-70r17-to-285-75r17",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "vehicleType": "4runner",
+    "priority": 0.85,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/265-70r16-vs-285-75r16",
+    "currentTire": "265/70R16",
+    "newTire": "285/75R16",
+    "priority": 0.75,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/285-70r17-vs-295-70r17",
+    "currentTire": "285/70R17",
+    "newTire": "295/70R17",
+    "priority": 0.7,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/255-80r17-vs-285-75r17",
+    "currentTire": "255/80R17",
+    "newTire": "285/75R17",
+    "priority": 0.7,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/265-75r16-vs-285-75r16",
+    "currentTire": "265/75R16",
+    "newTire": "285/75R16",
+    "priority": 0.7,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/best-gears-for-35s",
+    "newTire": "35x12.50R17",
+    "priority": 0.8,
+    "category": "gear-recommendation"
+  },
+  {
+    "url": "/best-gears-for-35s-tacoma",
+    "newTire": "35x12.50R17",
+    "vehicleType": "tacoma",
+    "priority": 0.75,
+    "category": "vehicle-gear-recommendation"
+  },
+  {
+    "url": "/best-gears-for-37s",
+    "newTire": "37x12.50R17",
+    "priority": 0.75,
+    "category": "gear-recommendation"
+  },
+  {
+    "url": "/best-gears-for-37s-jeep",
+    "newTire": "37x12.50R17",
+    "vehicleType": "jeep",
+    "priority": 0.7,
+    "category": "vehicle-gear-recommendation"
+  },
+  {
+    "url": "/285-75r17-on-4-10-gears",
+    "newTire": "285/75R17",
+    "gearRatio": "4.10",
+    "priority": 0.7,
+    "category": "tire-on-gears"
+  },
+  {
+    "url": "/35x12-50r17-on-4-88-gears",
+    "newTire": "35x12.50R17",
+    "gearRatio": "4.88",
+    "priority": 0.7,
+    "category": "tire-on-gears"
+  },
+  {
+    "url": "/37x12-50r17-on-5-13-gears",
+    "newTire": "37x12.50R17",
+    "gearRatio": "5.13",
+    "priority": 0.7,
+    "category": "tire-on-gears"
+  },
+  {
+    "url": "/tacoma-265-70r17-to-285-75r17-4-10-gears",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "gearRatio": "4.10",
+    "vehicleType": "tacoma",
+    "priority": 0.65,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/4runner-265-70r17-to-285-75r17-3-73-gears",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "gearRatio": "3.73",
+    "vehicleType": "4runner",
+    "priority": 0.65,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/4runner-265-70r17-to-285-75r17-4-10-gears",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "gearRatio": "4.10",
+    "vehicleType": "4runner",
+    "priority": 0.65,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/jeep-255-75r17-to-285-75r17-3-73-gears",
+    "currentTire": "255/75R17",
+    "newTire": "285/75R17",
+    "gearRatio": "3.73",
+    "vehicleType": "jeep",
+    "priority": 0.65,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/jeep-255-75r17-to-285-75r17-4-10-gears",
+    "currentTire": "255/75R17",
+    "newTire": "285/75R17",
+    "gearRatio": "4.10",
+    "vehicleType": "jeep",
+    "priority": 0.65,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/bronco-275-70r17-to-35x12-50r17-4-70-gears",
+    "currentTire": "275/70R17",
+    "newTire": "35x12.50R17",
+    "gearRatio": "4.70",
+    "vehicleType": "bronco",
+    "priority": 0.65,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/265-70r18-vs-285-70r18",
+    "currentTire": "265/70R18",
+    "newTire": "285/70R18",
+    "priority": 0.65,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/275-65r18-vs-285-70r18",
+    "currentTire": "275/65R18",
+    "newTire": "285/70R18",
+    "priority": 0.65,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/31x10-50r15-vs-33x12-50r15",
+    "currentTire": "31x10.50R15",
+    "newTire": "33x12.50R15",
+    "priority": 0.6,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/33x12-50r15-vs-35x12-50r15",
+    "currentTire": "33x12.50R15",
+    "newTire": "35x12.50R15",
+    "priority": 0.6,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/lt285-70r17-vs-lt295-70r17",
+    "currentTire": "LT285/70R17",
+    "newTire": "LT295/70R17",
+    "priority": 0.6,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/lt315-70r17-vs-35x12-50r17",
+    "currentTire": "LT315/70R17",
+    "newTire": "35x12.50R17",
+    "priority": 0.6,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/265-70r17-vs-275-70r18",
+    "currentTire": "265/70R17",
+    "newTire": "275/70R18",
+    "priority": 0.55,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/tacoma-265-70r17-to-33x10-50r17",
+    "currentTire": "265/70R17",
+    "newTire": "33x10.50R17",
+    "vehicleType": "tacoma",
+    "priority": 0.6,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/jeep-255-75r17-to-33x10-50r17",
+    "currentTire": "255/75R17",
+    "newTire": "33x10.50R17",
+    "vehicleType": "jeep",
+    "priority": 0.6,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/jeep-35x12-50r17-to-37x12-50r17",
+    "currentTire": "35x12.50R17",
+    "newTire": "37x12.50R17",
+    "vehicleType": "jeep",
+    "priority": 0.65,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/jeep-35x12-50r17-to-37x12-50r17-4-56-gears",
+    "currentTire": "35x12.50R17",
+    "newTire": "37x12.50R17",
+    "gearRatio": "4.56",
+    "vehicleType": "jeep",
+    "priority": 0.6,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/jeep-35x12-50r17-to-37x12-50r17-4-88-gears",
+    "currentTire": "35x12.50R17",
+    "newTire": "37x12.50R17",
+    "gearRatio": "4.88",
+    "vehicleType": "jeep",
+    "priority": 0.6,
+    "category": "vehicle-gear-specific"
+  },
+  {
+    "url": "/265-70r17-vs-265-75r16",
+    "currentTire": "265/70R17",
+    "newTire": "265/75R16",
+    "priority": 0.55,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/ranger-265-70r17-to-285-75r17",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "vehicleType": "ranger",
+    "priority": 0.55,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/colorado-265-70r17-to-285-75r17",
+    "currentTire": "265/70R17",
+    "newTire": "285/75R17",
+    "vehicleType": "colorado",
+    "priority": 0.55,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/f150-275-65r18-to-35x12-50r18",
+    "currentTire": "275/65R18",
+    "newTire": "35x12.50R18",
+    "vehicleType": "f150",
+    "priority": 0.6,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/silverado-275-60r20-to-33x12-50r20",
+    "currentTire": "275/60R20",
+    "newTire": "33x12.50R20",
+    "vehicleType": "silverado",
+    "priority": 0.55,
+    "category": "vehicle-specific"
+  },
+  {
+    "url": "/285-75r16-vs-315-75r16",
+    "currentTire": "285/75R16",
+    "newTire": "315/75R16",
+    "priority": 0.55,
+    "category": "popular-comparison"
+  },
+  {
+    "url": "/32-vs-33-tires",
+    "currentTire": "275/70R17",
+    "newTire": "285/75R17",
+    "priority": 0.6,
+    "category": "simplified-comparison"
+  },
+  {
+    "url": "/33-vs-37-tires",
+    "currentTire": "33x10.50R17",
+    "newTire": "37x12.50R17",
+    "priority": 0.6,
+    "category": "simplified-comparison"
+  },
+  {
+    "url": "/35-vs-37-tires",
+    "currentTire": "35x12.50R17",
+    "newTire": "37x12.50R17",
+    "priority": 0.65,
+    "category": "simplified-comparison"
+  }
+]

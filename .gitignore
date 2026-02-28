@@ -29,3 +29,7 @@ Thumbs.db
 tire-calc_*.txt
 tire-calc_*.csv
 tire-calc_*.json
+
+# Generated SEO pages (regenerated on build)
+public/comparisons/
+public/sitemap.xml
