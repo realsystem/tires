@@ -224,6 +224,15 @@ function calculateDrivetrainImpact(current, newTire, drivetrain) {
   const crawlRatioChange = 0; // No change when gears stay the same
   const crawlRatioChangePct = 0;
 
+  // Crawl SPEED impact (the real issue for rock crawlers)
+  // Speed at idle (1000 RPM) in 4WD low, first gear
+  // Formula: MPH = (RPM × Tire_Diameter) / (Gear_Ratio × Trans_Low × First_Gear × 336)
+  const testRPM = 1000;
+  const originalCrawlSpeed = (testRPM * current.diameter) / (axleGearRatio * transferCaseLowRatio * firstGearRatio * 336);
+  const newCrawlSpeed = (testRPM * newTire.diameter) / (axleGearRatio * transferCaseLowRatio * firstGearRatio * 336);
+  const crawlSpeedChange = newCrawlSpeed - originalCrawlSpeed;
+  const crawlSpeedChangePct = (crawlSpeedChange / originalCrawlSpeed) * 100;
+
   return {
     effectiveGearRatio: {
       original: originalEffectiveRatio,
@@ -249,7 +258,19 @@ function calculateDrivetrainImpact(current, newTire, drivetrain) {
       new: newCrawlRatio,
       change: crawlRatioChange,
       changePercentage: crawlRatioChangePct,
-      summary: 'Crawl ratio unchanged (gear ratios determine crawl capability, not tire size)'
+      summary: 'Crawl ratio unchanged (gear ratios determine crawl capability, not tire size)',
+      crawlSpeed: {
+        original: originalCrawlSpeed,
+        new: newCrawlSpeed,
+        change: crawlSpeedChange,
+        changePercentage: crawlSpeedChangePct,
+        testRPM: testRPM,
+        summary: crawlSpeedChangePct > 5
+          ? `Crawling ${Math.abs(crawlSpeedChangePct).toFixed(1)}% faster - reduced control on technical terrain`
+          : crawlSpeedChangePct < -5
+            ? `Crawling ${Math.abs(crawlSpeedChangePct).toFixed(1)}% slower - improved control`
+            : 'Minimal impact on crawling speed'
+      }
     }
   };
 }

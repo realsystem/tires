@@ -121,6 +121,14 @@ const DrivetrainImpact = ({ drivetrainImpact, comparison }) => {
 
         <div className="impact-summary">
           <p>{crawlRatio.summary}</p>
+          {crawlRatio.crawlSpeed && (
+            <p className={`note ${Math.abs(crawlRatio.crawlSpeed.changePercentage) > 10 ? 'warning' : 'info'}`}>
+              <strong>Actual crawl speed @ {crawlRatio.crawlSpeed.testRPM} RPM:</strong> {crawlRatio.crawlSpeed.original.toFixed(2)} mph → {crawlRatio.crawlSpeed.new.toFixed(2)} mph
+              ({formatChange(crawlRatio.crawlSpeed.changePercentage)}%)
+              <br />
+              {crawlRatio.crawlSpeed.summary}
+            </p>
+          )}
           {crawlRatio.new < 30 && (
             <p className="note warning">
               ⚠️ Crawl ratio below 30:1 may limit control on technical terrain
