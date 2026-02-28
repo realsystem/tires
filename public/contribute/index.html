@@ -73,23 +73,26 @@
       }
 
       .back-to-main {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
         margin-bottom: 1rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
         font-weight: 500;
         color: #999;
-        background: rgba(78, 181, 106, 0.1);
-        border: 1px solid rgba(78, 181, 106, 0.3);
-        border-radius: 4px;
+        background: transparent;
+        border: 1px solid rgba(255, 107, 53, 0.2);
+        border-radius: 3px;
         text-decoration: none;
         transition: all 0.2s ease;
       }
 
       .back-to-main:hover {
-        color: #4eb56a;
-        background: rgba(78, 181, 106, 0.2);
-        border-color: #4eb56a;
+        color: #ff6b35;
+        background: rgba(255, 107, 53, 0.1);
+        border-color: #ff6b35;
+        opacity: 1;
         transform: translateX(-2px);
       }
 
@@ -209,11 +212,11 @@
   <body>
     <div class="container">
       <!-- Back Link -->
-      <a href="/" class="back-link">← Back to Engineering Tool</a>
+      <a href="/tires/" class="back-link">← Back to Engineering Tool</a>
 
       <!-- Header -->
       <header class="header">
-        <a href="https://overlandn.com" class="back-to-main">← Back to OverlandN.com</a>
+        <a href="https://overlandn.com" class="back-to-main">← Back to main page</a>
         <h1>Contribute to the Research</h1>
         <p class="subtitle">Engineering-Grade Tire Comparison & Gear Ratio Analysis</p>
       </header>
