@@ -306,6 +306,12 @@ function calculateClearanceImpact(differences) {
  * Format tire for display
  */
 function formatDisplay(tire) {
+  // Use the original raw string if available (preserves user's exact input format)
+  if (tire.raw) {
+    return tire.raw;
+  }
+
+  // Fallback formatting if raw not available
   if (tire.format === 'Flotation') {
     return `${tire.diameter.toFixed(1)}x${(tire.width / 25.4).toFixed(2)}R${tire.wheelDiameter}`;
   }
