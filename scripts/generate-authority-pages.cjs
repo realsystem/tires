@@ -738,7 +738,7 @@ function generateContributePage() {
     .replace(/{{H1}}/g, 'Contribute to the Research')
     .replace(/{{STRUCTURED_DATA}}/g, '{}')
     .replace(/<div class="prefill-badge".*?<\/div>/s, '')
-    .replace(/<!-- Introduction -->[\s\S]*?<!-- Calculator Widget -->/, content);
+    .replace(/<!-- Introduction -->[\s\S]*?<!-- Related Links -->/, content + '\n\n      <!-- Related Links -->');
 
   fs.writeFileSync(
     path.join(__dirname, '../public/contribute/index.html'),
@@ -852,7 +852,7 @@ function generateBadgesPage() {
     .replace(/{{H1}}/g, 'Verification Badge System')
     .replace(/{{STRUCTURED_DATA}}/g, '{}')
     .replace(/<div class="prefill-badge".*?<\/div>/s, '')
-    .replace(/<!-- Introduction -->[\s\S]*?<!-- Calculator Widget -->/, content);
+    .replace(/<!-- Introduction -->[\s\S]*?<!-- Related Links -->/, content + '\n\n      <!-- Related Links -->');
 
   fs.writeFileSync(
     path.join(__dirname, '../public/badges/index.html'),

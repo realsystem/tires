@@ -221,34 +221,150 @@
       <!-- Prefill Badge -->
       
 
-      <!-- Introduction -->
-      <section class="content-section">
-        {{INTRO}}
-      </section>
-
-      <!-- Comparison Details -->
-      <section class="content-section">
-        {{COMPARISON_BLOCK}}
-      </section>
-
-      <!-- Gear Impact -->
-      <section class="content-section">
-        {{GEAR_IMPACT_BLOCK}}
-      </section>
-
-      <!-- Advisory -->
-      <section class="content-section">
-        {{ADVISORY_BLOCK}}
-      </section>
-
-      <!-- Interactive Engineering Tool -->
-      <section class="calculator-embed">
-        <h2>Interactive Engineering Tool</h2>
-        <p style="text-align: center; color: #999; margin-bottom: 1rem;">
-          Tool auto-filled with comparison data. Modify values below to explore other scenarios.
+      
+      <div class="content-section">
+        <h2>Contribute to the Methodology</h2>
+        <p class="lead" style="font-size: 1.1rem; color: #adbac7;">
+          This tool is built on transparency and continuous improvement.
+          We welcome contributions from engineers, builders, fabricators,
+          and shop owners with real-world expertise.
         </p>
-        <iframe src="/" id="calculator-iframe"></iframe>
-      </section>
+      </div>
+
+      <div class="content-section">
+        <h2>Contribution Types</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div style="background: #1a1f28; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4eb56a;">
+            <h3 style="margin-top: 0;">🔧 Technical Corrections</h3>
+            <p>Found an error in our formulas or assumptions? Let us know.</p>
+            <ul>
+              <li>Formula corrections</li>
+              <li>Calculation errors</li>
+              <li>Methodology improvements</li>
+            </ul>
+          </div>
+
+          <div style="background: #1a1f28; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4eb56a;">
+            <h3 style="margin-top: 0;">📊 Data Contributions</h3>
+            <p>Share validated build data to improve accuracy.</p>
+            <ul>
+              <li>Verified tire diameter measurements</li>
+              <li>Dyno-validated RPM data</li>
+              <li>Real-world stress observations</li>
+            </ul>
+          </div>
+
+          <div style="background: #1a1f28; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4eb56a;">
+            <h3 style="margin-top: 0;">⚠️ Edge Cases</h3>
+            <p>Document scenarios our model doesn't handle well.</p>
+            <ul>
+              <li>Portal axles</li>
+              <li>Extreme tire sizes (40"+)</li>
+              <li>Custom drivetrains</li>
+            </ul>
+          </div>
+
+          <div style="background: #1a1f28; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4eb56a;">
+            <h3 style="margin-top: 0;">📝 Research Suggestions</h3>
+            <p>Propose new research topics or studies.</p>
+            <ul>
+              <li>Unexplored tire size ranges</li>
+              <li>New vehicle platforms</li>
+              <li>Emerging trends</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>How to Submit</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+          <div style="background: #1a1f28; padding: 1.5rem; border-radius: 8px;">
+            <h3>GitHub Issues (Preferred)</h3>
+            <p>For technical corrections and methodology improvements:</p>
+            <a href="https://github.com/realsystem/tires/issues" style="display: inline-block; padding: 0.75rem 1.5rem; background: #4eb56a; color: #000; border-radius: 4px; text-decoration: none; font-weight: 600; margin-top: 1rem;">
+              Submit via GitHub
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
+              Requires GitHub account. Publicly visible. Best for technical discussions.
+            </p>
+          </div>
+
+          <div style="background: #1a1f28; padding: 1.5rem; border-radius: 8px;">
+            <h3>Email Submission</h3>
+            <p>For data contributions or private feedback:</p>
+            <a href="mailto:research@overlandn.com?subject=Tire%20Engineering%20Contribution" style="display: inline-block; padding: 0.75rem 1.5rem; background: #242933; color: #e0e0e0; border: 1px solid #4eb56a; border-radius: 4px; text-decoration: none; font-weight: 600; margin-top: 1rem;">
+              Email: research@overlandn.com
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
+              Include: Your name (optional), contribution type, and detailed information.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Submission Guidelines</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+          <div style="background: rgba(86, 211, 100, 0.05); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(86, 211, 100, 0.2);">
+            <h3 style="color: #56d364; margin-top: 0;">✅ Good Submissions</h3>
+            <ul>
+              <li><strong>Specific:</strong> "Formula X uses 336 constant, should be 336.136 for higher precision"</li>
+              <li><strong>Cited:</strong> "My dyno shows 2450 RPM, calculator predicts 2520 RPM (attached data)"</li>
+              <li><strong>Constructive:</strong> "Edge case: portal axles need different calculation approach"</li>
+            </ul>
+          </div>
+
+          <div style="background: rgba(255, 107, 107, 0.05); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255, 107, 107, 0.2);">
+            <h3 style="color: #ff6b6b; margin-top: 0;">❌ Not Helpful</h3>
+            <ul>
+              <li><strong>Vague:</strong> "Your numbers seem wrong"</li>
+              <li><strong>Uncited:</strong> "I think this formula is incorrect"</li>
+              <li><strong>Off-topic:</strong> "Where can I buy tires?"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Review Process</h2>
+        <ol style="font-size: 1.05rem;">
+          <li>
+            <strong>Submission received</strong>
+            <p style="margin: 0.5rem 0 1rem 0; color: #999;">All submissions reviewed within 7 days</p>
+          </li>
+          <li>
+            <strong>Technical validation</strong>
+            <p style="margin: 0.5rem 0 1rem 0; color: #999;">Cross-referenced against sources, tested against data</p>
+          </li>
+          <li>
+            <strong>Integration or response</strong>
+            <p style="margin: 0.5rem 0 1rem 0; color: #999;">Valid corrections: integrated into methodology with credit<br>Invalid: explained why via reply</p>
+          </li>
+          <li>
+            <strong>Changelog update</strong>
+            <p style="margin: 0.5rem 0 1rem 0; color: #999;">All accepted changes documented in methodology changelog</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2>Attribution Policy</h2>
+        <p>Contributors who provide substantial improvements will be credited:</p>
+        <ul>
+          <li><strong>Minor corrections:</strong> Listed in changelog with name (if provided)</li>
+          <li><strong>Major contributions:</strong> Listed in methodology credits section</li>
+          <li><strong>Data contributions:</strong> Acknowledged in dataset metadata</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: #999; margin-top: 1.5rem;">
+          You may request to remain anonymous. All contributions are voluntary
+          and become part of the public methodology under CC BY 4.0 license.
+        </p>
+      </div>
+  
 
       <!-- Related Links -->
       <section class="content-section">
