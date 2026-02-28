@@ -33,7 +33,7 @@ function generateMethodologyIndex() {
       <h2>Abstract</h2>
       <p>
         This document defines the mathematical models, assumptions, and engineering
-        principles underlying the Offroad Tire & Gear Ratio Calculator. All formulas
+        principles underlying the Offroad Tire & Gear Ratio Engineering Tool. All formulas
         are presented with citations, known limitations, and validation data.
       </p>
     </section>
@@ -224,7 +224,7 @@ function generateMethodologyIndex() {
   `;
 
   const html = methodologyTemplate
-    .replace(/{{TITLE}}/g, 'Engineering Methodology - Offroad Tire & Gear Ratio Calculator')
+    .replace(/{{TITLE}}/g, 'Engineering Methodology - Offroad Tire & Gear Ratio Engineering Tool')
     .replace(/{{DESCRIPTION}}/g, 'Complete technical documentation of formulas, assumptions, and validation data for tire and gear ratio calculations')
     .replace(/{{CANONICAL_URL}}/g, 'https://overlandn.com/tires/methodology/')
     .replace(/{{DATE_PUBLISHED}}/g, methodologyData.releaseDate)
