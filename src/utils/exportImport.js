@@ -45,12 +45,21 @@ export function exportToJSON(results, formData) {
  */
 export function exportToCSV(results) {
   const { comparison, drivetrainImpact } = results.comparison;
+  const { formData } = results;
 
   const rows = [
     ['Offroad Tire & Gear Ratio Engineering Tool - Results Export'],
     ['Export Date', new Date().toLocaleString()],
     [''],
-    ['Tire Comparison'],
+  ];
+
+  // Add vehicle info if available
+  if (formData.vehicleType) {
+    rows.push(['Vehicle', formData.vehicleType + (formData.vehicleLabel ? ' — ' + formData.vehicleLabel : '')]);
+    rows.push(['']);
+  }
+
+  rows.push(['Tire Comparison'],
     ['Metric', 'Current', 'New', 'Change'],
     ['Tire Size', comparison.current.formatted, comparison.new.formatted, ''],
     ['Diameter (inches)', comparison.current.diameter.toFixed(2), comparison.new.diameter.toFixed(2), comparison.differences.diameter.inches.toFixed(2)],
@@ -115,7 +124,7 @@ export function exportToCSV(results) {
  * @param {Object} results - Complete calculation results
  */
 export function exportToText(results) {
-  const { comparison } = results;
+  const { comparison, formData } = results;
   const drivetrainImpact = comparison.drivetrainImpact;
 
   let text = '';
@@ -124,7 +133,17 @@ export function exportToText(results) {
   text += '               RESULTS REPORT\n';
   text += '═══════════════════════════════════════════════════\n\n';
   text += `Export Date: ${new Date().toLocaleString()}\n`;
-  text += `Comparison: ${comparison.current.formatted} → ${comparison.new.formatted}\n\n`;
+  text += `Comparison: ${comparison.current.formatted} → ${comparison.new.formatted}\n`;
+
+  if (formData.vehicleType) {
+    text += `Vehicle: ${formData.vehicleType}`;
+    if (formData.vehicleLabel) {
+      text += ` — ${formData.vehicleLabel}`;
+    }
+    text += '\n';
+  }
+
+  text += '\n';
 
   text += '───────────────────────────────────────────────────\n';
   text += 'TIRE SPECIFICATIONS\n';

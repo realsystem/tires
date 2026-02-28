@@ -59,6 +59,11 @@ const ResultsDisplay = ({ results, onReset }) => {
           <p className="tire-comparison-label">
             {comparison.current.formatted} → {comparison.new.formatted}
           </p>
+          {formData.vehicleType && (
+            <p className="vehicle-label">
+              Vehicle: {formData.vehicleType} {formData.vehicleLabel && `— ${formData.vehicleLabel}`}
+            </p>
+          )}
         </div>
         <div className="results-actions">
           <div className="export-dropdown">

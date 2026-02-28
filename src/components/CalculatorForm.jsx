@@ -306,6 +306,7 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
         currentTireSize: vehicle.tire,
         axleGearRatio: String(parseFloat(vehicle.gear)),
         vehicleType: vehicleType,
+        vehicleLabel: vehicle.label, // Store full vehicle label (e.g., "2016-2023 Tacoma TRD Off-Road")
         suspensionType: suspensionType,
         vehicleCategory: category // Store category for filtering gear ratios
       }));

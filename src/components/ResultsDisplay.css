@@ -27,6 +27,13 @@
   margin: 0;
 }
 
+.vehicle-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: var(--spacing-xs) 0 0 0;
+  font-style: italic;
+}
+
 .results-actions {
   display: flex;
   gap: var(--spacing-md);
