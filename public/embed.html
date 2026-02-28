@@ -46,6 +46,27 @@
       color: #999;
     }
 
+    .back-to-main-embed {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #999;
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .back-to-main-embed:hover {
+      color: #ff6b35;
+      background: rgba(255, 107, 53, 0.2);
+      border-color: #ff6b35;
+      transform: translateX(-2px);
+    }
+
     .compact-form {
       display: grid;
       gap: 0.75rem;
@@ -173,6 +194,7 @@
 <body>
   <div class="embed-container">
     <div class="embed-header">
+      <a href="https://overlandn.com" class="back-to-main-embed" target="_blank">← Back to OverlandN.com</a>
       <div class="embed-title">Tire Engineering Tool</div>
       <div class="embed-subtitle">Compare tire sizes & gearing</div>
     </div>

@@ -72,6 +72,27 @@
         color: #999;
       }
 
+      .back-to-main {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #999;
+        background: rgba(255, 107, 53, 0.1);
+        border: 1px solid rgba(255, 107, 53, 0.3);
+        border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .back-to-main:hover {
+        color: #ff6b35;
+        background: rgba(255, 107, 53, 0.2);
+        border-color: #ff6b35;
+        transform: translateX(-2px);
+      }
+
       .content-section {
         background: #1a1a1a;
         border-radius: 8px;
@@ -192,6 +213,7 @@
 
       <!-- Header -->
       <header class="header">
+        <a href="https://overlandn.com" class="back-to-main">← Back to OverlandN.com</a>
         <h1>{{H1}}</h1>
         <p class="subtitle">Engineering-Grade Tire Comparison & Gear Ratio Analysis</p>
       </header>
