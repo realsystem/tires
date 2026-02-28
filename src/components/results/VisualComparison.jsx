@@ -161,7 +161,6 @@ const VisualComparison = ({ comparison }) => {
           </div>
 
           <div className="stat-item positive">
-            <span className="stat-icon">🏔</span>
             <div className="stat-content">
               <div className="stat-value">
                 +{differences.groundClearance.inches.toFixed(2)}"
