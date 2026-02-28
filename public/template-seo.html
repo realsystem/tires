@@ -47,36 +47,31 @@
         margin: 0;
       }
 
-      .container {
+      .header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #242933 100%);
+        border-bottom: 2px solid #ff6b35;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .header-content {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem;
-      }
-
-      .header {
+        padding: 0 2rem;
         text-align: center;
-        padding: 2rem 0 3rem 0;
-        border-bottom: 1px solid #333;
-        margin-bottom: 2rem;
+        position: relative;
       }
 
-      .header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #4eb56a;
-        margin-bottom: 1rem;
-      }
-
-      .header .subtitle {
-        font-size: 1.1rem;
-        color: #999;
+      .header-top {
+        position: absolute;
+        left: 2rem;
+        top: 0;
       }
 
       .back-to-main {
         display: inline-flex;
         align-items: center;
         gap: 0.25rem;
-        margin-bottom: 1rem;
         padding: 0.35rem 0.6rem;
         font-size: 0.75rem;
         font-weight: 500;
@@ -94,6 +89,25 @@
         border-color: #ff6b35;
         opacity: 1;
         transform: translateX(-2px);
+      }
+
+      .header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #e0e0e0;
+        margin-bottom: 0.5rem;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+        color: #999;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
       }
 
       .content-section {
@@ -178,25 +192,35 @@
         font-size: 0.9rem;
       }
 
-      .back-link {
-        display: inline-block;
-        margin-bottom: 2rem;
-        color: #4da6ff;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      .back-link:hover {
-        text-decoration: underline;
-      }
-
       @media (max-width: 768px) {
-        .container {
-          padding: 1rem;
+        .header {
+          padding: 1rem 0;
+        }
+
+        .header-content {
+          padding: 0 1rem;
+        }
+
+        .header-top {
+          position: static;
+          margin-bottom: 0.5rem;
+        }
+
+        .back-to-main {
+          font-size: 0.7rem;
+          padding: 0.3rem 0.5rem;
         }
 
         .header h1 {
-          font-size: 1.8rem;
+          font-size: 1.5rem;
+        }
+
+        .tagline {
+          font-size: 0.85rem;
+        }
+
+        .container {
+          padding: 1rem;
         }
 
         .content-section {
@@ -210,16 +234,18 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Back Link -->
-      <a href="/tires/" class="back-link">← Back to Engineering Tool</a>
-
       <!-- Header -->
       <header class="header">
-        <a href="https://overlandn.com" class="back-to-main">← Back to main page</a>
-        <h1>{{H1}}</h1>
-        <p class="subtitle">Engineering-Grade Tire Comparison & Gear Ratio Analysis</p>
+        <div class="header-content">
+          <div class="header-top">
+            <a href="https://overlandn.com" class="back-to-main">← Back to main page</a>
+          </div>
+          <h1>{{H1}}</h1>
+          <p class="tagline">Engineering-Grade Tire Comparison & Gear Ratio Analysis</p>
+        </div>
       </header>
+
+    <div class="container">
 
       <!-- Prefill Badge -->
       <div class="prefill-badge" id="prefill-badge" style="display: none;">
