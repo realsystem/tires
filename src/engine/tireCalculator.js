@@ -288,16 +288,21 @@ function calculateClearanceImpact(differences) {
     estimatedLiftRequired = 1;
     liftRecommendation = '1-2" lift recommended, or extensive trimming';
     modificationsNote = 'Many fit with no lift using: fender trimming, pinch weld modification, wheel spacers/offset';
-  } else if (diameterIncrease <= 5) {
+  } else if (diameterIncrease <= 4.5) {
     // Large increase - 2-3" lift
     estimatedLiftRequired = 2;
     liftRecommendation = '2-3" lift recommended';
     modificationsNote = 'Fender trimming, BMC (body mount chop), and wheel offset changes typically required';
+  } else if (diameterIncrease <= 6) {
+    // Very large increase - 3-4" lift
+    estimatedLiftRequired = 4;
+    liftRecommendation = '3-4" lift recommended';
+    modificationsNote = 'Significant modifications needed: extensive cutting, BMC, custom suspension, possible control arm issues';
   } else {
-    // Extreme increase - 3"+ lift
-    estimatedLiftRequired = 3;
-    liftRecommendation = '3"+ lift required';
-    modificationsNote = 'Significant modifications needed: extensive cutting, BMC, custom suspension';
+    // Extreme increase - 4"+ lift
+    estimatedLiftRequired = 5;
+    liftRecommendation = '4-6" lift required';
+    modificationsNote = 'Major build: long-travel suspension, custom control arms, extensive fabrication';
   }
 
   // Fender clearance concerns
