@@ -24,3 +24,8 @@ Thumbs.db
 .env
 .env.local
 .env.production
+
+# Export files (user-generated)
+tire-calc_*.txt
+tire-calc_*.csv
+tire-calc_*.json
