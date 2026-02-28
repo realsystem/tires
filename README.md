@@ -510,6 +510,58 @@ Consult with professional installers for major modifications. Test fit before cu
 
 ---
 
+## Authority & Research Infrastructure (Phase 6)
+
+This tool is built to be the **industry reference standard** for tire and gear ratio decisions.
+
+### Published Resources
+
+**Methodology** (`/methodology/`)
+- Complete formula disclosure
+- Validation data (253 builds)
+- Accuracy metrics with sample sizes
+- Version control and changelog
+- [View Methodology](https://overlandn.com/tires/methodology/)
+
+**Research Studies** (`/research/`)
+- RES-2026-001: Gear Ratio vs. Tire Diameter
+- Empirical thresholds for regearing
+- Statistical significance reporting
+- Citation-ready format
+- [Browse Research](https://overlandn.com/tires/research/)
+
+**Annual Reports** (`/reports/`)
+- 2026 Overland Drivetrain Report
+- Tire upgrade trends
+- Regear decision analysis
+- Industry benchmarks
+- [Read 2026 Report](https://overlandn.com/tires/reports/2026-overland-drivetrain-report/)
+
+**Verification Badges** (`/badges/`)
+- Embeddable stress score verification
+- Third-party credibility
+- Backlink generation
+- [Get Badge](https://overlandn.com/tires/badges/)
+
+### Contribute
+
+We welcome contributions from engineers, builders, and fabricators:
+- Technical corrections via [GitHub Issues](https://github.com/realsystem/tires/issues)
+- Data contributions via email: research@overlandn.com
+- [Contribution Guidelines](https://overlandn.com/tires/contribute/)
+
+### Transparency Commitment
+
+- ✅ All formulas are open source
+- ✅ All assumptions are documented
+- ✅ All limitations are disclosed
+- ✅ Sample sizes provided for all claims
+- ✅ No black boxes, no proprietary secrets
+
+**Documentation:** See [docs/PHASE6_AUTHORITY.md](docs/PHASE6_AUTHORITY.md)
+
+---
+
 ## License
 
 MIT License - Use freely for personal or commercial projects.

@@ -6,11 +6,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run seo:generate && vite build",
+    "build": "npm run seo:generate && npm run authority:generate && vite build",
     "build:app": "vite build",
     "preview": "vite preview",
     "test": "node --test tests/*.test.js",
-    "seo:generate": "node scripts/generate-seo-pages.js"
+    "seo:generate": "node scripts/generate-seo-pages.js",
+    "authority:generate": "node scripts/generate-authority-pages.cjs"
   },
   "dependencies": {
     "react": "^18.3.1",

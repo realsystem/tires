@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>Verification Badges - Offroad Tire Engineering Tool</title>
+    <meta name="description" content="Embed verified tire and gear ratio calculations with certification badges" />
+    <link rel="canonical" href="https://overlandn.com/tires/badges/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Verification Badges - Offroad Tire Engineering Tool" />
+    <meta property="og:description" content="Embed verified tire and gear ratio calculations with certification badges" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://overlandn.com/tires/badges/" />
+    <meta property="og:site_name" content="Offroad Tire & Gear Ratio Engineering Tool" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Verification Badges - Offroad Tire Engineering Tool" />
+    <meta name="twitter:description" content="Embed verified tire and gear ratio calculations with certification badges" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{}
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #0a0a0a;
+        color: #e0e0e0;
+        line-height: 1.6;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        padding: 2rem 0 3rem 0;
+        border-bottom: 1px solid #333;
+        margin-bottom: 2rem;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #4eb56a;
+        margin-bottom: 1rem;
+      }
+
+      .header .subtitle {
+        font-size: 1.1rem;
+        color: #999;
+      }
+
+      .back-to-main {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #999;
+        background: rgba(78, 181, 106, 0.1);
+        border: 1px solid rgba(78, 181, 106, 0.3);
+        border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .back-to-main:hover {
+        color: #4eb56a;
+        background: rgba(78, 181, 106, 0.2);
+        border-color: #4eb56a;
+        transform: translateX(-2px);
+      }
+
+      .content-section {
+        background: #1a1a1a;
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid #2a2a2a;
+      }
+
+      .content-section h2 {
+        color: #4eb56a;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #333;
+      }
+
+      .content-section h3 {
+        color: #5ec67a;
+        font-size: 1.3rem;
+        margin: 1.5rem 0 0.75rem 0;
+      }
+
+      .content-section p {
+        margin-bottom: 1rem;
+        color: #d0d0d0;
+      }
+
+      .content-section ul {
+        margin: 1rem 0 1rem 2rem;
+        color: #d0d0d0;
+      }
+
+      .content-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .content-section strong {
+        color: #4eb56a;
+        font-weight: 600;
+      }
+
+      .content-section a {
+        color: #4da6ff;
+        text-decoration: none;
+      }
+
+      .content-section a:hover {
+        text-decoration: underline;
+      }
+
+      .calculator-embed {
+        background: #0f0f0f;
+        border: 2px solid #4eb56a;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 2rem 0;
+      }
+
+      .calculator-embed h2 {
+        color: #4eb56a;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .calculator-embed iframe {
+        width: 100%;
+        min-height: 800px;
+        border: none;
+        border-radius: 4px;
+      }
+
+      .prefill-badge {
+        display: inline-block;
+        background: #4eb56a;
+        color: #000;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #4da6ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .header h1 {
+          font-size: 1.8rem;
+        }
+
+        .content-section {
+          padding: 1.5rem;
+        }
+
+        .content-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Back Link -->
+      <a href="/" class="back-link">← Back to Calculator</a>
+
+      <!-- Header -->
+      <header class="header">
+        <a href="https://overlandn.com" class="back-to-main">← Back to OverlandN.com</a>
+        <h1>Verification Badge System</h1>
+        <p class="subtitle">Engineering-Grade Tire Comparison & Gear Ratio Analysis</p>
+      </header>
+
+      <!-- Prefill Badge -->
+      
+
+      <!-- Introduction -->
+      <section class="content-section">
+        {{INTRO}}
+      </section>
+
+      <!-- Comparison Details -->
+      <section class="content-section">
+        {{COMPARISON_BLOCK}}
+      </section>
+
+      <!-- Gear Impact -->
+      <section class="content-section">
+        {{GEAR_IMPACT_BLOCK}}
+      </section>
+
+      <!-- Advisory -->
+      <section class="content-section">
+        {{ADVISORY_BLOCK}}
+      </section>
+
+      <!-- Interactive Calculator -->
+      <section class="calculator-embed">
+        <h2>Interactive Calculator</h2>
+        <p style="text-align: center; color: #999; margin-bottom: 1rem;">
+          Calculator auto-filled with comparison data. Modify values below to explore other scenarios.
+        </p>
+        <iframe src="/" id="calculator-iframe"></iframe>
+      </section>
+
+      <!-- Related Links -->
+      <section class="content-section">
+        {{INTERNAL_LINKS}}
+      </section>
+
+      <!-- Footer -->
+      <footer style="text-align: center; padding: 2rem 0; color: #666; border-top: 1px solid #333; margin-top: 3rem;">
+        <p>Offroad Tire & Gear Ratio Engineering Tool</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          Built for serious 4x4 builds, overlanding, and off-road enthusiasts
+        </p>
+      </footer>
+    </div>
+
+    <!-- Prefill Script -->
+    <script>
+      // Show prefill badge
+      const badge = document.getElementById('prefill-badge');
+      if (badge) {
+        badge.style.display = 'block';
+      }
+
+      // Get prefill data
+      const prefillData = {{PREFILL_DATA}};
+
+      // Post message to calculator iframe to prefill
+      window.addEventListener('DOMContentLoaded', () => {
+        const iframe = document.getElementById('calculator-iframe');
+
+        iframe.addEventListener('load', () => {
+          // Wait for iframe to load, then post prefill message
+          setTimeout(() => {
+            iframe.contentWindow.postMessage({
+              type: 'PREFILL_CALCULATOR',
+              data: prefillData
+            }, '*');
+          }, 500);
+        });
+      });
+
+      // Scroll to calculator when user clicks on related links
+      document.querySelectorAll('a[href^="/"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          // Let internal navigation work normally
+        });
+      });
+    </script>
+  </body>
+</html>

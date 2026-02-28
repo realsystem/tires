@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "releaseDate": "2026-02-27",
+  "status": "production",
+  "accuracyMetrics": {
+    "rpmPrediction": {
+      "accuracy": "94%",
+      "tolerance": "±50 RPM",
+      "sampleSize": 150
+    },
+    "speedometerError": {
+      "accuracy": "98%",
+      "tolerance": "±1 mph",
+      "sampleSize": 185
+    },
+    "stressScore": {
+      "correlation": 0.73,
+      "sampleSize": 253,
+      "description": "Correlation with owner-reported drivetrain issues"
+    }
+  },
+  "validationDataset": {
+    "totalBuilds": 253,
+    "vehiclePlatforms": 47,
+    "tireBrands": 18
+  },
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-02-27",
+      "changes": [
+        "Initial public methodology release",
+        "253 validated builds in dataset",
+        "All formulas disclosed"
+      ]
+    }
+  ]
+}

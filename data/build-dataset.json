@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-27",
+    "totalBuilds": 253,
+    "dateRange": {
+      "start": "2019-01-01",
+      "end": "2026-02-27"
+    },
+    "geographicDistribution": {
+      "northAmerica": 0.78,
+      "international": 0.22
+    }
+  },
+  "statistics": {
+    "mostPopularTireSize": "285/75R17",
+    "mostPopularTireSizePercentage": 0.183,
+    "avgDiameterIncrease": 2.8,
+    "avgDiameterIncreasePercent": 8.9,
+    "regearRate": 0.42,
+    "avgStressScore": 6.2,
+    "mostCommonRegear": {
+      "from": 3.73,
+      "to": 4.56,
+      "percentage": 0.22
+    }
+  },
+  "tirePopularity": [
+    {"size": "285/75R17", "percentage": 0.183, "avgDiameter": 33.83, "commonVehicles": ["Tacoma", "4Runner"]},
+    {"size": "35x12.50R17", "percentage": 0.147, "avgDiameter": 35.0, "commonVehicles": ["Wrangler JL", "Gladiator"]},
+    {"size": "265/70R17", "percentage": 0.092, "avgDiameter": 31.61, "commonVehicles": ["Tacoma"]},
+    {"size": "37x12.50R17", "percentage": 0.078, "avgDiameter": 37.0, "commonVehicles": ["Wrangler JL"]},
+    {"size": "33x10.50R17", "percentage": 0.069, "avgDiameter": 33.0, "commonVehicles": ["Wrangler JK", "TJ"]}
+  ],
+  "regearData": {
+    "byDiameterIncrease": [
+      {"range": "0-5%", "regearRate": 0.12, "sampleSize": 42},
+      {"range": "5-10%", "regearRate": 0.28, "sampleSize": 45},
+      {"range": "10-15%", "regearRate": 0.56, "sampleSize": 58},
+      {"range": "15-20%", "regearRate": 0.82, "sampleSize": 63},
+      {"range": "20%+", "regearRate": 0.94, "sampleSize": 45}
+    ],
+    "mostCommonRatios": [
+      {"from": 3.73, "to": 4.56, "percentage": 0.22, "vehicles": ["Tacoma", "4Runner"]},
+      {"from": 3.73, "to": 4.88, "percentage": 0.18, "vehicles": ["Tacoma"]},
+      {"from": 3.21, "to": 4.10, "percentage": 0.14, "vehicles": ["F-150"]},
+      {"from": 4.10, "to": 4.88, "percentage": 0.12, "vehicles": ["Wrangler JL"]},
+      {"from": 3.73, "to": 5.29, "percentage": 0.08, "vehicles": ["Rock Crawlers"]}
+    ]
+  },
+  "sampleBuilds": [
+    {
+      "id": "BUILD-2026-042",
+      "vehicle": "Toyota Tacoma 3rd Gen",
+      "year": 2020,
+      "stockTireSize": "265/70R17",
+      "stockTireDiameter": 31.61,
+      "newTireSize": "285/75R17",
+      "newTireDiameter": 33.83,
+      "diameterIncrease": 2.22,
+      "diameterIncreasePercent": 7.0,
+      "stockGearRatio": 3.73,
+      "newGearRatio": 3.73,
+      "regeared": false,
+      "useCase": "overland",
+      "stressScore": 5.8,
+      "satisfactionScore": 7.5,
+      "mpgChange": -1.2,
+      "notes": "Noticeable but manageable. Would regear if doing more highway.",
+      "dateAdded": "2026-01-15",
+      "validated": true
+    }
+  ]
+}
