@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# package-lock.json - KEEP for Docker builds (npm ci requires it)
+yarn.lock
+
+# Build output
+dist
+build
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation (optional - include if you want smaller image)
+# README.md
+# EXAMPLES.md
+# TIRE_SIZE_REFERENCE.md
+
+# Tests (optional - include if you want smaller image)
+tests
+*.test.js

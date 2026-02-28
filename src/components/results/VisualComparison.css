@@ -1,0 +1,188 @@
+.visual-comparison {
+}
+
+.visual-hint {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.comparison-visualization {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.tire-visual-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.tire-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.tire-label {
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tire-svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.tire-outer {
+  fill: none;
+  stroke-width: 3;
+}
+
+.tire-outer.current {
+  stroke: var(--color-text-muted);
+}
+
+.tire-outer.new {
+  stroke: var(--color-accent);
+}
+
+.tire-inner {
+  fill: var(--color-bg-secondary);
+  stroke-width: 2;
+}
+
+.tire-inner.current {
+  stroke: var(--color-text-muted);
+}
+
+.tire-inner.new {
+  stroke: var(--color-accent);
+}
+
+.tire-center {
+  fill: var(--color-text-muted);
+}
+
+.tire-diameter-line {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.tire-width-indicator {
+  fill: currentColor;
+}
+
+.tire-width-indicator.current {
+  color: var(--color-text-muted);
+}
+
+.tire-width-indicator.new {
+  color: var(--color-accent);
+}
+
+.tire-specs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: center;
+  padding: var(--spacing-md);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+.tire-specs .spec {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tire-column:last-child .spec {
+  color: var(--color-accent);
+}
+
+.tire-specs .spec-detail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.comparison-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  border-left: 4px solid;
+}
+
+.stat-item.positive {
+  border-left-color: var(--color-success);
+}
+
+.stat-item.negative {
+  border-left-color: var(--color-error);
+}
+
+.stat-icon {
+  font-size: var(--font-size-3xl);
+  flex-shrink: 0;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-pct {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tire-visual-container {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .tire-svg {
+    max-width: 300px;
+  }
+}

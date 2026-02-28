@@ -1,0 +1,42 @@
+category,label,tire,gear,tcase,first
+tacoma,2016-2023 Tacoma SR5,245/75R16,3.73,2.566,3.538
+tacoma,2016-2023 Tacoma TRD Sport,265/65R17,3.73,2.566,3.538
+tacoma,2016-2023 Tacoma TRD Off-Road,265/70R16,3.909,2.566,3.538
+tacoma,2016-2023 Tacoma TRD Pro,265/70R16,4.10,2.566,3.538
+tacoma,2024+ Tacoma TRD Pro,265/70R18,4.30,2.566,3.538
+fourrunner,2010-2024 4Runner SR5,265/70R17,4.10,2.566,3.538
+fourrunner,2010-2024 4Runner TRD Off-Road,265/70R17,4.10,2.566,3.538
+fourrunner,2010-2024 4Runner TRD Pro,265/70R17,4.10,2.566,3.538
+fourrunner,2010-2024 4Runner Limited,245/60R20,4.10,2.566,3.538
+jeep,JK Wrangler Sport/Sahara (2007-2018),255/75R17,3.73,2.72,4.71
+jeep,JK Wrangler Rubicon (2007-2018),255/75R17,4.10,4.0,4.71
+jeep,JL Wrangler Sport (2018+),245/75R17,3.45,2.72,4.71
+jeep,JL Wrangler Sahara (2018+),255/70R18,3.45,2.72,4.71
+jeep,JL Wrangler Rubicon (2018+),285/70R17,4.10,4.0,4.71
+jeep,JL Wrangler Rubicon 392 (2021+),285/70R17,4.10,4.0,4.71
+jeep,JL Wrangler Xtreme Recon,35x12.50R17,4.56,4.0,4.71
+gladiator,Gladiator Sport/Overland,255/70R18,3.73,2.72,4.71
+gladiator,Gladiator Rubicon,285/70R17,4.10,4.0,4.71
+gladiator,Gladiator Mojave,285/70R17,4.10,4.0,4.71
+landcruiser,100 Series Land Cruiser (1998-2007),275/70R16,4.10,2.48,3.52
+landcruiser,200 Series Land Cruiser (2008-2021),285/65R18,3.91,2.566,3.30
+landcruiser,Land Cruiser 70 Series,265/70R16,4.11,2.48,3.93
+landcruiser,2024+ Land Cruiser 250,265/70R18,3.58,2.48,4.69
+raptor,F-150 Raptor (2017-2020),315/70R17,4.10,2.64,4.696
+raptor,F-150 Raptor (2021+),315/70R17,4.10,3.06,4.696
+raptor,F-150 Raptor R (2023+),37x12.50R17,4.70,3.06,4.696
+ram,Ram 1500 Rebel (2019+),285/70R17,3.92,2.64,4.71
+ram,Ram 1500 TRX (2021+),35x11.50R18,3.55,2.64,4.71
+ram,Ram 2500 Power Wagon,285/70R17,4.10,2.72,3.00
+suzuki,Suzuki Samurai (1986-1995),215/75R15,5.12,2.03,3.78
+suzuki,Suzuki Sidekick (1989-1998),205/75R15,4.62,2.03,3.76
+suzuki,Suzuki Jimny (2018+),195/80R15,5.08,2.40,3.48
+landrover,Defender 90/110 (2020+),255/70R18,3.54,2.93,4.71
+landrover,Defender 110 X-Dynamic (2020+),265/65R19,3.54,2.93,4.71
+landrover,Discovery (2017+),255/60R19,3.73,2.93,4.71
+landrover,Range Rover (2013+),275/45R21,3.54,2.93,4.71
+bronco,Bronco Base (2021+),255/70R16,3.73,2.72,4.696
+bronco,Bronco Big Bend (2021+),255/75R17,3.73,2.72,4.696
+bronco,Bronco Badlands (2021+),285/70R17,4.70,2.72,4.696
+bronco,Bronco Wildtrak/Sasquatch (2021+),315/70R17,4.70,3.06,4.696
+bronco,Bronco Raptor (2022+),37x12.50R17,4.70,3.06,4.696

@@ -1,0 +1,116 @@
+.speedometer-error {
+}
+
+.speedometer-error.warning {
+  border-left: 3px solid var(--color-warning);
+}
+
+.speedometer-summary {
+  margin-bottom: var(--spacing-lg);
+}
+
+.summary-text {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.alert-box {
+  padding: var(--spacing-md);
+  background: rgba(227, 179, 65, 0.1);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+}
+
+.speed-table {
+  margin-bottom: var(--spacing-lg);
+}
+
+.speed-table .table-header,
+.speed-table .table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  align-items: center;
+}
+
+.speed-table .table-header {
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.speed-table .table-row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.speed-table .table-row:last-child {
+  border-bottom: none;
+}
+
+.speed-indicated,
+.speed-actual {
+  font-family: var(--font-mono);
+}
+
+.speed-actual strong {
+  color: var(--color-accent);
+}
+
+.speed-error {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  font-family: var(--font-mono);
+}
+
+.speed-error .positive {
+  color: var(--color-warning);
+}
+
+.speed-error .negative {
+  color: var(--color-info);
+}
+
+.speed-error .neutral {
+  color: var(--color-text-muted);
+}
+
+.error-pct {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.speedometer-note {
+  padding: var(--spacing-md);
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+}
+
+.speedometer-note strong {
+  color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .speed-table .table-header,
+  .speed-table .table-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .speed-table .table-header div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .speed-error {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}

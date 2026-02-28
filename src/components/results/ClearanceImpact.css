@@ -1,0 +1,108 @@
+.clearance-impact {
+}
+
+.clearance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.clearance-item {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.clearance-item.positive {
+  border-left: 3px solid var(--color-success);
+}
+
+.clearance-item.warning {
+  border-left: 3px solid var(--color-warning);
+}
+
+.clearance-icon {
+  font-size: var(--font-size-3xl);
+  flex-shrink: 0;
+}
+
+.clearance-content {
+  flex: 1;
+}
+
+.clearance-content h4 {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+}
+
+.clearance-value {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.clearance-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: var(--spacing-xs) 0;
+}
+
+.clearance-modifications {
+  margin-top: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+}
+
+.clearance-modifications li {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.clearance-alert {
+  padding: var(--spacing-md);
+  background: rgba(227, 179, 65, 0.1);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.fitment-checklist {
+  padding: var(--spacing-lg);
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.fitment-checklist h4 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.fitment-checklist ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+.fitment-checklist li {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clearance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fitment-checklist ul {
+    grid-template-columns: 1fr;
+  }
+}
