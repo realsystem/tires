@@ -1,39 +1,16 @@
 #!/bin/bash
 
-# Redirect overlandn.com/tires to GitHub Pages
-# No file copying needed - just configure a redirect!
+# Redirect overlandn.com/tires → GitHub Pages
+# Add to nginx config:
 
-echo "🔗 Setting up overlandn.com/tires redirect to GitHub Pages"
-echo ""
-echo "═══════════════════════════════════════════════════════════"
-echo ""
-echo "📝 NGINX Configuration (Recommended):"
-echo ""
-echo "Add to /etc/nginx/sites-available/overlandn.com:"
-echo ""
-echo "    location /tires {"
-echo "        return 301 https://realsystem.github.io/tires\$request_uri;"
-echo "    }"
-echo ""
-echo "Then reload: sudo systemctl reload nginx"
-echo ""
-echo "═══════════════════════════════════════════════════════════"
-echo ""
-echo "📝 APACHE Configuration:"
-echo ""
-echo "Add to /etc/apache2/sites-available/overlandn.com.conf:"
-echo ""
-echo "    RedirectMatch 301 ^/tires(/.*)\$ https://realsystem.github.io/tires\$1"
-echo ""
-echo "Then reload: sudo systemctl reload apache2"
-echo ""
-echo "═══════════════════════════════════════════════════════════"
-echo ""
-echo "✅ That's it! No files to copy, no builds to deploy."
-echo ""
-echo "🌐 GitHub Pages serves the app automatically."
-echo "🔗 Your domain just redirects to it."
-echo ""
-echo "📖 Full guide: docs/REDIRECT_SETUP.md"
-echo "🌐 Test at: https://overlandn.com/tires"
-echo ""
+cat << 'EOF'
+
+Add to your nginx config:
+
+    location /tires {
+        return 301 https://realsystem.github.io/tires$request_uri;
+    }
+
+Then: sudo systemctl reload nginx
+
+EOF

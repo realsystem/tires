@@ -205,3 +205,23 @@ Set in hosting platform:
 5. Access at: https://realsystem.github.io/tires/
 
 **That's it!** Your tire calculator will be live and accessible worldwide.
+
+---
+
+## Custom Domain Redirect
+
+To serve from your own domain (e.g., `overlandn.com/tires`):
+
+**Nginx:**
+```nginx
+location /tires {
+    return 301 https://realsystem.github.io/tires$request_uri;
+}
+```
+
+**Apache:**
+```apache
+RedirectMatch 301 ^/tires(/.*)$ https://realsystem.github.io/tires$1
+```
+
+Then reload your web server. That's it!
