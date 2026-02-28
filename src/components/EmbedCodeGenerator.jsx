@@ -15,7 +15,8 @@ const EmbedCodeGenerator = ({ currentTire, newTire, gearRatio }) => {
   const [toast, setToast] = useState(null);
 
   // Use current origin for preview (works in dev and production)
-  const previewBaseUrl = `${window.location.origin}/embed.html`;
+  // In production, BASE_URL is '/tires/', in dev it's '/'
+  const previewBaseUrl = `${window.location.origin}${import.meta.env.BASE_URL}embed.html`;
 
   // Always use production URL for generated embed code
   const productionBaseUrl = 'https://overlandn.com/tires/embed.html';
