@@ -7,13 +7,17 @@ import RegearRecommendations from './results/RegearRecommendations';
 import AdvisoryPanel from './results/AdvisoryPanel';
 import VisualComparison from './results/VisualComparison';
 import WeightLoadAnalysis from './results/WeightLoadAnalysis';
+import Toast from './Toast';
+import EmbedCodeGenerator from './EmbedCodeGenerator';
 import { exportToJSON, exportToCSV, exportToText } from '../utils/exportImport';
+import { generateForumText, generateBBCodeText, copyToClipboard } from '../utils/forumExport';
 import './ResultsDisplay.css';
 
 const ResultsDisplay = ({ results, onReset }) => {
   const { comparison, comparisonWithNewGears, finalStateComparison, regearRecommendations, advisory, formData, compatibility } = results;
   const [activeTab, setActiveTab] = useState('overview');
   const [showExportMenu, setShowExportMenu] = useState(false);
+  const [toast, setToast] = useState(null);
 
   // Scroll to top when results are displayed
   useEffect(() => {
@@ -34,6 +38,30 @@ const ResultsDisplay = ({ results, onReset }) => {
   const handleExportText = () => {
     exportToText(results);
     setShowExportMenu(false);
+  };
+
+  const handleCopyForumText = async () => {
+    const forumText = generateForumText(comparison, formData);
+    const success = await copyToClipboard(forumText);
+    setShowExportMenu(false);
+
+    if (success) {
+      setToast({ message: 'Forum text copied to clipboard!', type: 'success' });
+    } else {
+      setToast({ message: 'Failed to copy. Please try again.', type: 'error' });
+    }
+  };
+
+  const handleCopyBBCode = async () => {
+    const bbCodeText = generateBBCodeText(comparison, formData);
+    const success = await copyToClipboard(bbCodeText);
+    setShowExportMenu(false);
+
+    if (success) {
+      setToast({ message: 'BBCode copied to clipboard!', type: 'success' });
+    } else {
+      setToast({ message: 'Failed to copy. Please try again.', type: 'error' });
+    }
   };
 
   // Use finalStateComparison for drivetrain display when new gears are specified
@@ -75,15 +103,28 @@ const ResultsDisplay = ({ results, onReset }) => {
             </button>
             {showExportMenu && (
               <div className="export-menu">
-                <button onClick={handleExportJSON} className="export-option">
-                  Export as JSON (for re-import)
-                </button>
-                <button onClick={handleExportCSV} className="export-option">
-                  Export as CSV (spreadsheet)
-                </button>
-                <button onClick={handleExportText} className="export-option">
-                  Export as Text Report
-                </button>
+                <div className="export-section">
+                  <div className="export-section-title">Share on Forums</div>
+                  <button onClick={handleCopyForumText} className="export-option export-highlight">
+                    📋 Copy for Forum (Plain Text)
+                  </button>
+                  <button onClick={handleCopyBBCode} className="export-option">
+                    📋 Copy as BBCode
+                  </button>
+                </div>
+                <div className="export-divider"></div>
+                <div className="export-section">
+                  <div className="export-section-title">Save & Archive</div>
+                  <button onClick={handleExportJSON} className="export-option">
+                    Export as JSON (for re-import)
+                  </button>
+                  <button onClick={handleExportCSV} className="export-option">
+                    Export as CSV (spreadsheet)
+                  </button>
+                  <button onClick={handleExportText} className="export-option">
+                    Export as Text Report
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -298,6 +339,22 @@ const ResultsDisplay = ({ results, onReset }) => {
           </div>
         )}
       </div>
+
+      {/* Embed Code Generator */}
+      <EmbedCodeGenerator
+        currentTire={formData.currentTireSize}
+        newTire={formData.newTireSize}
+        gearRatio={formData.axleGearRatio}
+      />
+
+      {/* Toast Notification */}
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </div>
   );
 };

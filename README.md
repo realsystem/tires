@@ -14,7 +14,7 @@ Built by someone who understands Toyota builds, Jeep solid axle setups, and real
 
 **Run Locally**: `./start.sh` → Select option 1 → Open http://localhost:8080
 
-**Docs**: [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Tacoma Guide](docs/TACOMA_3909_GUIDE.md) · [Intended Use](docs/INTENDED_USE_GUIDE.md) · [Deployment](docs/DEPLOYMENT.md) · [Docker](docs/DOCKER.md)
+**Docs**: [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Embed & Share](docs/EMBED_AND_SHARE.md) · [Tacoma Guide](docs/TACOMA_3909_GUIDE.md) · [Intended Use](docs/INTENDED_USE_GUIDE.md) · [Deployment](docs/DEPLOYMENT.md) · [Docker](docs/DOCKER.md)
 
 ---
 
@@ -45,6 +45,13 @@ Built by someone who understands Toyota builds, Jeep solid axle setups, and real
 - IFS vs solid axle considerations
 - Overlanding range and reliability advice
 - Load rating and sidewall durability warnings
+
+### Sharing & Embedding (Phase 3)
+- **Forum Export**: One-click copy for Tacoma World, IH8MUD, JeepForum
+- **BBCode Support**: Formatted output for BBCode-enabled forums
+- **Embeddable Widget**: Standalone calculator for blogs and websites
+- **Direct URL Sharing**: Pre-filled comparisons via URL parameters
+- **Embed Code Generator**: Visual tool to create iframe embeds
 
 ---
 

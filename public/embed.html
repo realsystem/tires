@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tire Engineering Tool - Embed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .embed-container {
+      max-width: 100%;
+      padding: 1rem;
+    }
+
+    .embed-header {
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .embed-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ff6b35;
+      margin-bottom: 0.25rem;
+    }
+
+    .embed-subtitle {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .compact-form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .form-input,
+    .form-select {
+      padding: 0.5rem;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 4px;
+      color: #e0e0e0;
+      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: #ff6b35;
+    }
+
+    .btn {
+      padding: 0.65rem 1.25rem;
+      background: #ff6b35;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #ff8555;
+      transform: translateY(-1px);
+    }
+
+    .results-compact {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 4px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .result-label {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .result-value {
+      font-weight: 600;
+      color: #ff6b35;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+    }
+
+    .result-positive {
+      color: #4caf50;
+    }
+
+    .result-negative {
+      color: #f44336;
+    }
+
+    .embed-footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+
+    .embed-link {
+      font-size: 0.75rem;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .embed-link:hover {
+      color: #ff6b35;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="embed-container">
+    <div class="embed-header">
+      <div class="embed-title">Tire Engineering Tool</div>
+      <div class="embed-subtitle">Compare tire sizes & gearing</div>
+    </div>
+
+    <form class="compact-form" id="calcForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Current Tire</label>
+          <input type="text" class="form-input" id="currentTire" placeholder="265/70R17" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Tire</label>
+          <input type="text" class="form-input" id="newTire" placeholder="285/75R17" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Axle Gear Ratio</label>
+          <select class="form-select" id="gearRatio">
+            <option value="">Not sure</option>
+            <option value="3.23">3.23</option>
+            <option value="3.54">3.54</option>
+            <option value="3.58">3.58</option>
+            <option value="3.73">3.73</option>
+            <option value="3.90">3.90</option>
+            <option value="3.91">3.91</option>
+            <option value="4.10">4.10</option>
+            <option value="4.11">4.11</option>
+            <option value="4.30">4.30</option>
+            <option value="4.46">4.46</option>
+            <option value="4.56">4.56</option>
+            <option value="4.62">4.62</option>
+            <option value="4.70">4.70</option>
+            <option value="4.88">4.88</option>
+            <option value="5.08">5.08</option>
+            <option value="5.12">5.12</option>
+            <option value="5.13">5.13</option>
+            <option value="5.29">5.29</option>
+            <option value="5.38">5.38</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">&nbsp;</label>
+          <button type="submit" class="btn">Calculate</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="results-compact hidden" id="results">
+      <!-- Results populated by JavaScript -->
+    </div>
+
+    <div class="embed-footer">
+      <a href="https://overlandn.com/tires" target="_blank" class="embed-link">
+        Powered by Offroad Tire Engineering Tool
+      </a>
+    </div>
+  </div>
+
+  <script type="module">
+    // Import calculation engines (paths will be resolved at build time)
+    // For now, inline the essential calculation logic
+
+    function parseTireSize(sizeString) {
+      const normalized = sizeString.trim().toUpperCase();
+
+      // Flotation format: 35x12.50R17
+      const flotationMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*X\s*(\d+(?:\.\d+)?)(?:R|-)(\d+(?:\.\d+)?)/);
+      if (flotationMatch) {
+        const diameterInches = parseFloat(flotationMatch[1]);
+        const widthInches = parseFloat(flotationMatch[2]);
+        const wheelDiameter = parseFloat(flotationMatch[3]);
+        const sidewallInches = (diameterInches - wheelDiameter) / 2;
+        const widthMm = widthInches * 25.4;
+
+        return {
+          format: 'Flotation',
+          width: widthMm,
+          widthInches: widthInches,
+          wheelDiameter: wheelDiameter,
+          sidewallInches: sidewallInches,
+          diameter: diameterInches,
+        };
+      }
+
+      // Metric format: 265/70R17, LT285/75R16
+      const metricMatch = normalized.match(/^(?:P|LT)?(\d+)\/(\d+)R(\d+(?:\.\d+)?)/);
+      if (metricMatch) {
+        const width = parseInt(metricMatch[1], 10);
+        const aspectRatio = parseInt(metricMatch[2], 10);
+        const wheelDiameter = parseFloat(metricMatch[3]);
+        const sidewallMm = (width * aspectRatio) / 100;
+        const diameterInches = ((width * aspectRatio * 2) / 100 / 25.4) + wheelDiameter;
+
+        return {
+          format: 'Metric',
+          width: width,
+          widthInches: width / 25.4,
+          wheelDiameter: wheelDiameter,
+          sidewallInches: sidewallMm / 25.4,
+          diameter: diameterInches,
+        };
+      }
+
+      throw new Error('Invalid tire size format');
+    }
+
+    function calculateComparison(currentTire, newTire, gearRatio) {
+      const currentDiam = currentTire.diameter;
+      const newDiam = newTire.diameter;
+
+      const diamDiff = newDiam - currentDiam;
+      const diamPct = (diamDiff / currentDiam) * 100;
+
+      const widthDiff = newTire.widthInches - currentTire.widthInches;
+      const widthPct = (widthDiff / currentTire.widthInches) * 100;
+
+      const clearanceGain = diamDiff / 2;
+
+      // Speedometer error
+      const ratio = newDiam / currentDiam;
+      const speed60Actual = 60 * ratio;
+      const speedError = speed60Actual - 60;
+
+      // Gearing impact
+      let gearingImpact = null;
+      if (gearRatio) {
+        const effectiveRatio = parseFloat(gearRatio) * (currentDiam / newDiam);
+        const ratioChange = ((effectiveRatio - gearRatio) / gearRatio) * 100;
+
+        gearingImpact = {
+          currentRatio: gearRatio,
+          effectiveRatio: effectiveRatio,
+          ratioChangePct: ratioChange,
+        };
+      }
+
+      return {
+        currentDiam,
+        newDiam,
+        diamDiff,
+        diamPct,
+        widthDiff,
+        widthPct,
+        clearanceGain,
+        speed60Actual,
+        speedError,
+        gearingImpact,
+      };
+    }
+
+    function displayResults(result) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.classList.remove('hidden');
+
+      const diamChangeClass = result.diamPct > 0 ? 'result-positive' : 'result-negative';
+      const speedErrorClass = Math.abs(result.speedError) > 3 ? 'result-negative' : '';
+
+      let html = `
+        <div class="result-row">
+          <span class="result-label">Diameter Change</span>
+          <span class="result-value ${diamChangeClass}">${result.diamDiff > 0 ? '+' : ''}${result.diamDiff.toFixed(2)}" (${result.diamPct > 0 ? '+' : ''}${result.diamPct.toFixed(1)}%)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Width Change</span>
+          <span class="result-value">${result.widthDiff > 0 ? '+' : ''}${result.widthDiff.toFixed(2)}"</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Ground Clearance</span>
+          <span class="result-value result-positive">+${result.clearanceGain.toFixed(2)}"</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">60 mph → Actual Speed</span>
+          <span class="result-value ${speedErrorClass}">${result.speed60Actual.toFixed(1)} mph</span>
+        </div>
+      `;
+
+      if (result.gearingImpact) {
+        const gearChangeClass = Math.abs(result.gearingImpact.ratioChangePct) > 5 ? 'result-negative' : '';
+        html += `
+          <div class="result-row">
+            <span class="result-label">Effective Gear Ratio</span>
+            <span class="result-value ${gearChangeClass}">${result.gearingImpact.effectiveRatio.toFixed(2)}</span>
+          </div>
+        `;
+      }
+
+      resultsDiv.innerHTML = html;
+    }
+
+    // URL parameter handling
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('current')) document.getElementById('currentTire').value = urlParams.get('current');
+    if (urlParams.has('new')) document.getElementById('newTire').value = urlParams.get('new');
+    if (urlParams.has('gear')) document.getElementById('gearRatio').value = urlParams.get('gear');
+
+    // Auto-calculate if params present
+    if (urlParams.has('current') && urlParams.has('new') && urlParams.get('auto') === 'true') {
+      setTimeout(() => {
+        document.getElementById('calcForm').dispatchEvent(new Event('submit'));
+      }, 100);
+    }
+
+    // Form submission
+    document.getElementById('calcForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const currentTireStr = document.getElementById('currentTire').value;
+      const newTireStr = document.getElementById('newTire').value;
+      const gearRatioStr = document.getElementById('gearRatio').value;
+
+      try {
+        const currentTire = parseTireSize(currentTireStr);
+        const newTire = parseTireSize(newTireStr);
+        const result = calculateComparison(currentTire, newTire, gearRatioStr || null);
+        displayResults(result);
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    });
+  </script>
+</body>
+</html>
