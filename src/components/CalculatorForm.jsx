@@ -75,6 +75,10 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
       { label: '2024+ Tacoma Trailhunter', tire: '265/70R18', gear: '4.30' }
     ],
     fourrunner: [
+      { label: '1984-1989 4Runner SR5 (1st Gen)', tire: '31x10.50R15', gear: '4.10' },
+      { label: '1984-1989 4Runner (1st Gen)', tire: '225/75R15', gear: '4.56' },
+      { label: '1990-1995 4Runner SR5 (2nd Gen)', tire: '265/70R15', gear: '3.73' },
+      { label: '1990-1995 4Runner (2nd Gen)', tire: '31x10.50R15', gear: '4.10' },
       { label: '1996-2002 4Runner SR5 (3rd Gen)', tire: '265/70R16', gear: '4.10' },
       { label: '1996-2002 4Runner Limited (3rd Gen)', tire: '265/70R16', gear: '3.73' },
       { label: '2003-2009 4Runner SR5 (4th Gen)', tire: '265/70R16', gear: '4.10' },
