@@ -304,7 +304,7 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
       setFormData(prev => ({
         ...prev,
         currentTireSize: vehicle.tire,
-        axleGearRatio: vehicle.gear,
+        axleGearRatio: String(parseFloat(vehicle.gear)),
         vehicleType: vehicleType,
         suspensionType: suspensionType,
         vehicleCategory: category // Store category for filtering gear ratios
