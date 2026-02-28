@@ -264,26 +264,53 @@ function calculateEngineRPM(tireDiameter, axleRatio, transRatio, speedMPH) {
 
 /**
  * Calculate clearance and fitment impact
+ * NOTE: Lift recommendations are conservative. Many builds fit larger tires with
+ * modifications like trimming, BMC, wheel offset changes, etc.
  */
 function calculateClearanceImpact(differences) {
   const diameterIncrease = differences.diameter.inches;
   const widthIncrease = differences.width.inches;
 
-  // Estimate minimum lift required (rule of thumb: 1" lift per 1" diameter increase)
-  const estimatedLiftRequired = diameterIncrease > 1 ? Math.ceil(diameterIncrease) : 0;
+  // Calculate realistic lift requirement
+  // Account for: ground clearance gain is HALF diameter increase (radius)
+  // Most people can fit larger tires with trimming/mods before needing lift
+  let estimatedLiftRequired = 0;
+  let liftRecommendation = '';
+  let modificationsNote = '';
+
+  if (diameterIncrease <= 1.5) {
+    // Small increase - usually no lift needed
+    estimatedLiftRequired = 0;
+    liftRecommendation = 'Stock suspension (trimming may be required)';
+    modificationsNote = 'Minor fender liner trimming may help clearance';
+  } else if (diameterIncrease <= 3) {
+    // Medium increase - 1-2" lift or mods
+    estimatedLiftRequired = 1;
+    liftRecommendation = '1-2" lift recommended, or extensive trimming';
+    modificationsNote = 'Many fit with no lift using: fender trimming, pinch weld modification, wheel spacers/offset';
+  } else if (diameterIncrease <= 5) {
+    // Large increase - 2-3" lift
+    estimatedLiftRequired = 2;
+    liftRecommendation = '2-3" lift recommended';
+    modificationsNote = 'Fender trimming, BMC (body mount chop), and wheel offset changes typically required';
+  } else {
+    // Extreme increase - 3"+ lift
+    estimatedLiftRequired = 3;
+    liftRecommendation = '3"+ lift required';
+    modificationsNote = 'Significant modifications needed: extensive cutting, BMC, custom suspension';
+  }
 
   // Fender clearance concerns
   const fenderClearanceConcern = widthIncrease > 1 || diameterIncrease > 2;
 
   // Backspacing/offset change needed
-  const offsetChangeNeeded = widthIncrease > 2;
+  const offsetChangeNeeded = widthIncrease > 1.5;
 
   return {
     groundClearanceGain: differences.groundClearance.inches,
     estimatedLiftRequired: estimatedLiftRequired,
-    liftRecommendation: estimatedLiftRequired > 0
-      ? `Approximately ${estimatedLiftRequired}" suspension lift recommended`
-      : 'May fit with stock suspension',
+    liftRecommendation: liftRecommendation,
+    modificationsNote: modificationsNote,
     fenderClearance: {
       concern: fenderClearanceConcern,
       message: fenderClearanceConcern

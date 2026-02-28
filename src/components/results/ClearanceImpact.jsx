@@ -2,7 +2,7 @@ import React from 'react';
 import './ClearanceImpact.css';
 
 const ClearanceImpact = ({ clearance, differences }) => {
-  const { groundClearanceGain, estimatedLiftRequired, liftRecommendation, fenderClearance, wheelOffset, bumpstopModification } = clearance;
+  const { groundClearanceGain, estimatedLiftRequired, liftRecommendation, modificationsNote, fenderClearance, wheelOffset, bumpstopModification } = clearance;
 
   return (
     <div className="clearance-impact card">
@@ -31,6 +31,11 @@ const ClearanceImpact = ({ clearance, differences }) => {
                 : 'May fit stock height'}
             </p>
             <p className="clearance-note">{liftRecommendation}</p>
+            {modificationsNote && (
+              <p className="clearance-mods-note">
+                💡 {modificationsNote}
+              </p>
+            )}
           </div>
         </div>
 

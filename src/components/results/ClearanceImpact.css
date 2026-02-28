@@ -54,6 +54,17 @@
   margin: var(--spacing-xs) 0;
 }
 
+.clearance-mods-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-info);
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: rgba(88, 166, 255, 0.08);
+  border-left: 2px solid var(--color-info);
+  border-radius: var(--radius-sm);
+  font-style: italic;
+}
+
 .clearance-modifications {
   margin-top: var(--spacing-sm);
   padding-left: var(--spacing-md);
