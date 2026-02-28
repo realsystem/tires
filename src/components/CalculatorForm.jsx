@@ -132,10 +132,24 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
     const vehicle = vehicleDatabase[category][parseInt(index)];
 
     if (vehicle) {
+      // Extract vehicle type from label (e.g., "2016-2023 Tacoma SR5" -> "Toyota Tacoma")
+      let vehicleType = '';
+      if (category === 'tacoma') vehicleType = 'Toyota Tacoma';
+      else if (category === 'fourrunner') vehicleType = 'Toyota 4Runner';
+      else if (category === 'jeep') vehicleType = 'Jeep Wrangler';
+      else if (category === 'gladiator') vehicleType = 'Jeep Gladiator';
+      else if (category === 'bronco') vehicleType = 'Ford Bronco';
+      else if (category === 'raptor') vehicleType = 'Ford F-150';
+      else if (category === 'landcruiser') vehicleType = 'Toyota Land Cruiser';
+      else if (category === 'ram') vehicleType = 'Ram 1500';
+      else if (category === 'landrover') vehicleType = 'Land Rover';
+      else if (category === 'suzuki') vehicleType = 'Suzuki';
+
       setFormData(prev => ({
         ...prev,
         currentTireSize: vehicle.tire,
-        axleGearRatio: vehicle.gear
+        axleGearRatio: vehicle.gear,
+        vehicleType: vehicleType
       }));
     }
   };

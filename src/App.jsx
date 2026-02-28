@@ -159,7 +159,8 @@ function App() {
           comparison,
           parseFloat(formData.axleGearRatio),
           formData.intendedUse,
-          drivetrain
+          drivetrain,
+          formData.vehicleType || null
         );
       }
 

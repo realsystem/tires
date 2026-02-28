@@ -1,0 +1,47 @@
+vehicleType,stockTireDiameter,newTireDiameter,stockGearRatio,recommendedGearRatio,useCase,notes
+Jeep Wrangler,31,33,3.73,4.10,Daily driver,Good balance for street and trail
+Jeep Wrangler,31,33,4.10,4.56,Off-road focused,Better crawl ratio
+Jeep Wrangler,31,35,3.73,4.56,Daily driver,Restores factory performance
+Jeep Wrangler,31,35,3.73,4.88,Off-road focused,Excellent low-end torque
+Jeep Wrangler,31,35,4.10,5.13,Heavy build,For armored/weighted builds
+Jeep Wrangler,31,37,3.73,4.88,Balanced,Standard for 37s
+Jeep Wrangler,31,37,4.10,5.13,Off-road focused,Superior crawl ratio
+Jeep Wrangler,31,39,3.73,5.13,Extreme build,Large tires + weight
+Jeep Wrangler,31,40,3.73,5.38,Extreme build,Maximum crawl ratio
+Toyota Tacoma,31,33,3.73,4.10,Daily driver,Light off-road use
+Toyota Tacoma,31,33,3.73,4.56,Mixed use,Better performance restoration
+Toyota Tacoma,31,35,3.73,4.56,Daily driver,Most popular choice for 35s
+Toyota Tacoma,31,35,3.73,4.88,Heavy build,Weighted rigs with armor
+Toyota Tacoma,31,37,3.73,4.88,Off-road focused,Gold standard for 37s
+Toyota 4Runner,31,33,3.73,4.10,Highway/light trail,Maintains MPG
+Toyota 4Runner,31,33,3.73,4.56,Off-road focused,Better low-end power
+Toyota 4Runner,31,35,3.73,4.56,Daily driver,Restores lost torque
+Toyota 4Runner,31,35,3.73,4.88,Heavy build,Roof tent + armor
+Toyota 4Runner,31,37,3.73,4.88,Dedicated trail,Maximum capability
+Ford F-150,32,33,3.55,4.10,Daily driver,Balanced performance
+Ford F-150,32,35,3.55,4.56,Mixed use,Restores factory feel
+Ford F-150,32,37,3.55,4.88,Off-road focused,Maintains power
+Ford Bronco,32,33,3.55,4.46,Daily driver,OEM Badlands spec
+Ford Bronco,32,35,3.55,4.56,Mixed use,Popular upgrade
+Ford Bronco,32,37,3.55,4.88,Off-road focused,Maintains RPMs
+Ford Bronco,32,37,3.73,5.13,Extreme build,Maximum crawl
+Chevy Silverado,31,33,3.42,4.10,Daily driver,Balanced choice
+Chevy Silverado,31,35,3.42,4.56,Mixed use,95% customer choice
+Chevy Silverado,31,35,3.73,4.88,Heavy towing,Maintains tow capacity
+Chevy Silverado,31,37,3.73,4.88,Off-road focused,Standard for 37s
+Chevy Colorado,30,33,3.42,4.10,Daily driver,Improved acceleration
+Chevy Colorado,30,33,3.73,4.56,Off-road focused,Better crawl ratio
+Chevy Colorado,30,35,3.73,4.88,Mixed use,Restores performance
+GMC Sierra,31,33,3.42,4.10,Daily driver,Good all-around
+GMC Sierra,31,35,3.42,4.56,Mixed use,Popular choice
+GMC Sierra,31,37,3.73,4.88,Off-road focused,Maintains power
+Ram 1500,32,33,3.55,4.10,Daily driver,Balanced performance
+Ram 1500,32,35,3.55,4.56,Mixed use,Restores factory feel
+Ram 1500,32,37,3.55,4.88,Off-road focused,Good crawl ratio
+Ram 2500,33,35,3.73,4.56,Towing,Maintains capacity
+Ram 2500,33,37,3.73,4.88,Heavy duty,Commercial/towing
+Nissan Titan,32,33,3.36,4.10,Daily driver,Better acceleration
+Nissan Titan,32,35,3.36,4.56,Mixed use,Recommended upgrade
+Toyota Tundra,32,33,3.73,4.30,Daily driver,Slight improvement
+Toyota Tundra,32,35,3.73,4.56,Mixed use,Popular choice
+Toyota Tundra,32,37,3.73,4.88,Off-road focused,Heavy-duty use

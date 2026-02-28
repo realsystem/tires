@@ -4,6 +4,11 @@
  * Considers real-world off-road and overland scenarios
  */
 
+import {
+  enhanceRecommendationsWithRealWorldData,
+  getVehicleExamples
+} from './gearRatioData.js';
+
 // Common available gear ratios (sorted numerically)
 const AVAILABLE_GEAR_RATIOS = [
   3.07, 3.21, 3.31, 3.42, 3.45, 3.55, 3.73, 3.909, 3.92, 4.10, 4.27, 4.30,
@@ -57,9 +62,10 @@ const USE_CASE_PROFILES = {
  * @param {number} currentGearRatio - Current axle gear ratio
  * @param {string} intendedUse - Intended use case key
  * @param {Object} drivetrain - Additional drivetrain specs
+ * @param {string} vehicleType - Optional vehicle type (e.g., "Jeep Wrangler")
  * @returns {Object} Re-gear recommendations
  */
-export function generateRegearRecommendations(comparison, currentGearRatio, intendedUse = 'balanced', drivetrain = {}) {
+export function generateRegearRecommendations(comparison, currentGearRatio, intendedUse = 'balanced', drivetrain = {}, vehicleType = null) {
   const useCase = USE_CASE_PROFILES[intendedUse] || USE_CASE_PROFILES.weekend_trail;
 
   // Calculate what ratio would restore factory performance
@@ -85,7 +91,7 @@ export function generateRegearRecommendations(comparison, currentGearRatio, inte
   const necessity = determineRegearNecessity(comparison, currentGearRatio);
 
   // Calculate performance impact for each option
-  const recommendations = buildRecommendations(
+  let recommendations = buildRecommendations(
     comparison,
     currentGearRatio,
     restorationOptions,
@@ -93,6 +99,18 @@ export function generateRegearRecommendations(comparison, currentGearRatio, inte
     useCase,
     drivetrain
   );
+
+  // Enhance with real-world data
+  recommendations = enhanceRecommendationsWithRealWorldData(recommendations, {
+    vehicleType,
+    stockDiameter: comparison.current.diameter,
+    newDiameter: comparison.new.diameter,
+    currentGearRatio,
+    useCase: intendedUse
+  });
+
+  // Get real-world examples for reference
+  const realWorldExamples = getVehicleExamples(comparison.new.diameter);
 
   return {
     necessity,
@@ -103,6 +121,7 @@ export function generateRegearRecommendations(comparison, currentGearRatio, inte
       optimal: optimalRatio
     },
     recommendations,
+    realWorldExamples,
     analysis: analyzeRegearImpact(comparison, currentGearRatio, recommendations[0]?.ratio)
   };
 }

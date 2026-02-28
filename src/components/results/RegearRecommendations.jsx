@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './RegearRecommendations.css';
 
 const RegearRecommendations = ({ regearRecommendations, comparison }) => {
-  const { necessity, useCase, currentRatio, recommendations, analysis } = regearRecommendations;
+  const { necessity, useCase, currentRatio, recommendations, analysis, realWorldExamples } = regearRecommendations;
   const [selectedRatio, setSelectedRatio] = useState(recommendations[0]?.ratio);
 
   const getNecessityBadge = (level) => {
@@ -58,6 +58,16 @@ const RegearRecommendations = ({ regearRecommendations, comparison }) => {
               <div className="ratio-value">{rec.ratio.toFixed(2)}</div>
               <div className="ratio-type">{rec.type === 'restoration' ? '🔄 Restore' : '🎯 Optimal'}</div>
               <div className="ratio-score">Score: {rec.verdict.score}/100</div>
+              {rec.realWorldValidation && (
+                <div className="real-world-badge" title={`Proven choice for ${rec.realWorldValidation.source}`}>
+                  ✓ Verified
+                </div>
+              )}
+              {rec.popularity && (
+                <div className="popularity-badge" title={`Popular across ${rec.popularity.vehicles.join(', ')}`}>
+                  ★ #{rec.popularity.rank}
+                </div>
+              )}
             </button>
           ))}
         </div>
@@ -133,6 +143,39 @@ const RegearRecommendations = ({ regearRecommendations, comparison }) => {
           </div>
         )}
       </div>
+
+      {realWorldExamples && realWorldExamples.length > 0 && (
+        <div className="card real-world-examples">
+          <h3>Real-World Builds</h3>
+          <p className="section-desc">
+            Examples of similar tire upgrades from the community and manufacturers
+          </p>
+
+          <div className="examples-grid">
+            {realWorldExamples.map((example, i) => (
+              <div key={i} className="example-card">
+                <div className="example-header">
+                  <strong>{example.vehicleType}</strong>
+                  <span className="example-gear">{example.recommendedGearRatio.toFixed(2)}</span>
+                </div>
+                <div className="example-details">
+                  <div className="example-row">
+                    <span className="label">Tires:</span>
+                    <span className="value">{example.stockTireDiameter}" → {example.newTireDiameter}"</span>
+                  </div>
+                  <div className="example-row">
+                    <span className="label">Use:</span>
+                    <span className="value">{example.useCase}</span>
+                  </div>
+                  {example.notes && (
+                    <div className="example-notes">{example.notes}</div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
     </div>
   );

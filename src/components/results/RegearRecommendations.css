@@ -132,6 +132,27 @@
   font-weight: 500;
 }
 
+.real-world-badge,
+.popularity-badge {
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  margin-top: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.real-world-badge {
+  background: rgba(86, 211, 100, 0.15);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.popularity-badge {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--color-info);
+  border: 1px solid var(--color-info);
+}
+
 .ratio-analysis {
   padding: var(--spacing-xl);
   background: var(--color-bg-tertiary);
@@ -322,6 +343,80 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-sm);
+}
+
+/* Real-World Examples */
+.real-world-examples {
+  margin-top: var(--spacing-xl);
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.example-card {
+  padding: var(--spacing-md);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.example-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.example-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.example-header strong {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+}
+
+.example-gear {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.example-details {
+  font-size: var(--font-size-sm);
+}
+
+.example-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.example-row .label {
+  color: var(--color-text-muted);
+}
+
+.example-row .value {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.example-notes {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 /* Responsive */
