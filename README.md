@@ -14,7 +14,7 @@ Built by someone who understands Toyota builds, Jeep solid axle setups, and real
 
 **Run Locally in 60 seconds**: `./start.sh` → Select option 1 → Open http://localhost:8080
 
-**Quick Links**: [Custom Domain Setup](docs/CUSTOM_DOMAIN.md) · [Deployment Guide](docs/DEPLOYMENT.md) · [Docker Guide](docs/QUICKSTART_DOCKER.md) · [Full Docker Docs](docs/DOCKER.md) · [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Tacoma 3.909 Guide](docs/TACOMA_3909_GUIDE.md) · [Import/Export Guide](docs/IMPORT_EXPORT.md) · [Intended Use Guide](docs/INTENDED_USE_GUIDE.md)
+**Quick Links**: [Redirect Setup](docs/REDIRECT_SETUP.md) · [Deployment Guide](docs/DEPLOYMENT.md) · [Custom Domain](docs/CUSTOM_DOMAIN.md) · [Docker Guide](docs/QUICKSTART_DOCKER.md) · [Full Docker Docs](docs/DOCKER.md) · [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Tacoma 3.909 Guide](docs/TACOMA_3909_GUIDE.md) · [Import/Export Guide](docs/IMPORT_EXPORT.md) · [Intended Use Guide](docs/INTENDED_USE_GUIDE.md)
 
 ---
 

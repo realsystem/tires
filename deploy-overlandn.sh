@@ -1,32 +1,39 @@
 #!/bin/bash
 
-# Deploy to overlandn.com/tires
-# Usage: ./deploy-overlandn.sh
+# Redirect overlandn.com/tires to GitHub Pages
+# No file copying needed - just configure a redirect!
 
-set -e
-
-echo "🔨 Building production bundle..."
-npm run build
-
+echo "🔗 Setting up overlandn.com/tires redirect to GitHub Pages"
 echo ""
-echo "📦 Build complete! Files ready in ./dist/"
+echo "═══════════════════════════════════════════════════════════"
 echo ""
-echo "📤 To deploy to overlandn.com/tires:"
+echo "📝 NGINX Configuration (Recommended):"
 echo ""
-echo "Option 1: Manual upload (SCP)"
-echo "  scp -r dist/* your-user@your-server:/var/www/overlandn.com/tires/"
+echo "Add to /etc/nginx/sites-available/overlandn.com:"
 echo ""
-echo "Option 2: Manual upload (rsync - recommended)"
-echo "  rsync -avz --delete dist/ your-user@your-server:/var/www/overlandn.com/tires/"
+echo "    location /tires {"
+echo "        return 301 https://realsystem.github.io/tires\$request_uri;"
+echo "    }"
 echo ""
-echo "Option 3: SFTP"
-echo "  sftp your-user@your-server"
-echo "  > put -r dist/* /var/www/overlandn.com/tires/"
+echo "Then reload: sudo systemctl reload nginx"
 echo ""
-echo "📋 After upload, configure your web server:"
-echo "  - See docs/CUSTOM_DOMAIN.md for nginx/apache configs"
+echo "═══════════════════════════════════════════════════════════"
 echo ""
-echo "🌐 Then visit: https://overlandn.com/tires/"
+echo "📝 APACHE Configuration:"
 echo ""
-echo "💡 For automated deployment, see docs/CUSTOM_DOMAIN.md Option 2"
+echo "Add to /etc/apache2/sites-available/overlandn.com.conf:"
+echo ""
+echo "    RedirectMatch 301 ^/tires(/.*)\$ https://realsystem.github.io/tires\$1"
+echo ""
+echo "Then reload: sudo systemctl reload apache2"
+echo ""
+echo "═══════════════════════════════════════════════════════════"
+echo ""
+echo "✅ That's it! No files to copy, no builds to deploy."
+echo ""
+echo "🌐 GitHub Pages serves the app automatically."
+echo "🔗 Your domain just redirects to it."
+echo ""
+echo "📖 Full guide: docs/REDIRECT_SETUP.md"
+echo "🌐 Test at: https://overlandn.com/tires"
 echo ""
