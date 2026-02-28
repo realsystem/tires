@@ -181,6 +181,76 @@ const CalculatorForm = ({ onCalculate, onImport }) => {
       { label: '2011-2021 Grand Cherokee WK2 Laredo', tire: '245/60R20', gear: '3.45' },
       { label: '2011-2021 Grand Cherokee WK2 Overland', tire: '265/60R18', gear: '3.45' },
       { label: '2011-2021 Grand Cherokee WK2 Trailhawk', tire: '265/60R18', gear: '3.45' }
+    ],
+    tj: [
+      { label: '1997-2002 TJ Wrangler Sport', tire: '225/75R16', gear: '3.73' },
+      { label: '1997-2002 TJ Wrangler Sahara', tire: '30x9.50R15', gear: '4.10' },
+      { label: '2003-2006 TJ Wrangler Rubicon', tire: '245/75R16', gear: '4.10' }
+    ],
+    yj: [
+      { label: '1987-1995 YJ Wrangler', tire: '215/75R15', gear: '3.73' },
+      { label: '1987-1995 YJ Wrangler Sport', tire: '225/75R15', gear: '4.10' }
+    ],
+    cj: [
+      { label: '1972-1983 CJ-5', tire: '31x10.50R15', gear: '3.73' },
+      { label: '1976-1986 CJ-7 Base', tire: '31x10.50R15', gear: '3.73' },
+      { label: '1976-1986 CJ-7 Renegade', tire: '31x10.50R15', gear: '4.10' },
+      { label: '1981-1986 CJ-8 Scrambler', tire: '31x10.50R15', gear: '3.73' }
+    ],
+    ranger: [
+      { label: '1983-1992 Ranger 4WD', tire: '225/75R15', gear: '4.10' },
+      { label: '1993-1997 Ranger XLT 4WD', tire: '225/75R15', gear: '4.10' },
+      { label: '1998-2011 Ranger FX4', tire: '235/75R15', gear: '4.10' },
+      { label: '2019-2024 Ranger XLT', tire: '255/70R16', gear: '3.55' },
+      { label: '2019-2024 Ranger Tremor', tire: '265/70R17', gear: '4.46' }
+    ],
+    f150: [
+      { label: '2004-2008 F-150 FX4', tire: '265/70R17', gear: '3.73' },
+      { label: '2009-2014 F-150 FX4', tire: '275/65R18', gear: '3.73' },
+      { label: '2015-2020 F-150 XLT 4WD', tire: '265/70R17', gear: '3.55' },
+      { label: '2015-2020 F-150 Lariat 4WD', tire: '275/55R20', gear: '3.55' },
+      { label: '2021-2024 F-150 XLT 4WD', tire: '265/70R17', gear: '3.55' },
+      { label: '2021-2024 F-150 Tremor', tire: '285/70R18', gear: '3.73' }
+    ],
+    f250: [
+      { label: '1999-2007 F-250 XLT 4WD', tire: '235/85R16', gear: '3.73' },
+      { label: '1999-2007 F-250 Lariat 4WD', tire: '245/75R17', gear: '4.10' },
+      { label: '2008-2010 F-250 XLT', tire: 'LT275/65R18', gear: '3.73' },
+      { label: '2008-2010 F-250 King Ranch', tire: 'LT275/70R18', gear: '4.10' },
+      { label: '2011-2016 F-250 XLT', tire: '275/65R18', gear: '3.73' },
+      { label: '2011-2016 F-250 Tremor', tire: '285/75R18', gear: '4.30' },
+      { label: '2017-2024 F-250 XLT', tire: '275/65R18', gear: '3.55' },
+      { label: '2017-2024 F-250 Tremor', tire: '285/75R18', gear: '4.30' }
+    ],
+    colorado: [
+      { label: '2004-2012 Colorado Z71', tire: '265/75R15', gear: '3.73' },
+      { label: '2004-2012 Colorado Z85', tire: '235/75R15', gear: '3.42' },
+      { label: '2015-2020 Colorado Z71', tire: '265/65R17', gear: '3.42' },
+      { label: '2015-2020 Colorado ZR2', tire: '285/70R17', gear: '3.42' },
+      { label: '2021-2024 Colorado Z71', tire: '265/65R17', gear: '3.42' },
+      { label: '2024+ Colorado ZR2', tire: '285/70R17', gear: '3.42' }
+    ],
+    silverado1500: [
+      { label: '2007-2013 Silverado LT', tire: '265/65R18', gear: '3.42' },
+      { label: '2007-2013 Silverado Z71', tire: '265/70R17', gear: '3.73' },
+      { label: '2014-2018 Silverado LT', tire: '265/65R18', gear: '3.42' },
+      { label: '2014-2018 Silverado Z71', tire: '265/65R18', gear: '3.42' },
+      { label: '2019-2024 Silverado Trail Boss', tire: '275/65R18', gear: '3.23' },
+      { label: '2023+ Silverado ZR2', tire: '285/70R17', gear: '3.73' }
+    ],
+    silverado2500: [
+      { label: '2007-2024 Silverado 2500HD LT', tire: '265/70R17', gear: '3.73' },
+      { label: '2007-2024 Silverado 2500HD Duramax', tire: 'LT265/70R17', gear: '4.10' }
+    ],
+    sierra1500: [
+      { label: '2007-2013 Sierra SLT', tire: '265/65R18', gear: '3.42' },
+      { label: '2007-2013 Sierra SLE', tire: '265/70R17', gear: '3.42' },
+      { label: '2019-2024 Sierra AT4', tire: '275/65R18', gear: '3.23' },
+      { label: '2023+ Sierra AT4X', tire: '285/70R17', gear: '3.73' }
+    ],
+    sierra2500: [
+      { label: '2007-2024 Sierra 2500HD SLE', tire: '265/70R17', gear: '3.73' },
+      { label: '2007-2024 Sierra 2500HD Denali', tire: 'LT265/70R17', gear: '4.10' }
     ]
   };
 
