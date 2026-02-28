@@ -77,7 +77,7 @@ export function exportToCSV(results) {
       comparison.speedometerError.errors.at75mph.actual.toFixed(1)
     ],
     ['']
-  ];
+  );
 
   if (drivetrainImpact) {
     rows.push(
