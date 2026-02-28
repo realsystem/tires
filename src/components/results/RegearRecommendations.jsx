@@ -21,12 +21,13 @@ const RegearRecommendations = ({ regearRecommendations, comparison }) => {
   return (
     <div className="regear-recommendations">
       <div className="card necessity-assessment">
-        <div className={`necessity-badge ${badge.class}`}>
-          <span className="badge-icon">{badge.icon}</span>
-          <span className="badge-label">{badge.label}</span>
+        <div className="assessment-header">
+          <h3>Re-Gearing Assessment</h3>
+          <div className={`necessity-badge ${badge.class}`}>
+            <span className="badge-icon">{badge.icon}</span>
+            <span className="badge-label">{badge.label}</span>
+          </div>
         </div>
-
-        <h3>Re-Gearing Assessment</h3>
         <p className="necessity-reason">{necessity.reason}</p>
 
         <div className="necessity-stats">
@@ -56,7 +57,7 @@ const RegearRecommendations = ({ regearRecommendations, comparison }) => {
               onClick={() => setSelectedRatio(rec.ratio)}
             >
               <div className="ratio-value">{rec.ratio.toFixed(2)}</div>
-              <div className="ratio-type">{rec.type === 'restoration' ? '🔄 Restore' : '🎯 Optimal'}</div>
+              <div className="ratio-type">{rec.type === 'restoration' ? 'Restore' : 'Optimal'}</div>
               <div className="ratio-score">Score: {rec.verdict.score}/100</div>
               {rec.realWorldValidation && (
                 <div className="real-world-badge" title={`Proven choice for ${rec.realWorldValidation.source}`}>

@@ -2,14 +2,21 @@
 }
 
 .necessity-assessment {
-  position: relative;
-  padding-top: calc(var(--spacing-xl) + 40px);
+}
+
+.assessment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.assessment-header h3 {
+  margin-bottom: 0;
 }
 
 .necessity-badge {
-  position: absolute;
-  top: var(--spacing-xl);
-  right: var(--spacing-xl);
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -17,6 +24,7 @@
   border-radius: var(--radius-md);
   font-weight: 600;
   font-size: var(--font-size-sm);
+  white-space: nowrap;
 }
 
 .necessity-badge.critical {
@@ -421,13 +429,15 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .necessity-badge {
-    position: static;
-    margin-bottom: var(--spacing-lg);
+  .assessment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
   }
 
-  .necessity-assessment {
-    padding-top: var(--spacing-xl);
+  .necessity-badge {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
   }
 
   .necessity-stats {

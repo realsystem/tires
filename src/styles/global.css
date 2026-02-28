@@ -16,9 +16,9 @@
   --color-border-hover: #444c56;
 
   /* Brand Colors */
-  --color-accent: #ff8c42;
-  --color-accent-hover: #ff9d5c;
-  --color-accent-muted: rgba(255, 140, 66, 0.1);
+  --color-accent: #4eb56a;
+  --color-accent-hover: #5ec67a;
+  --color-accent-muted: rgba(78, 181, 106, 0.1);
 
   /* Status Colors */
   --color-success: #56d364;
