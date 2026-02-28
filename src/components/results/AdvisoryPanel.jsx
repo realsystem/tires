@@ -215,7 +215,7 @@ const AdvisoryPanel = ({ advisory, comparison, formData }) => {
           <div className="section-header" onClick={() => toggleSection('airDown')}>
             <h3>
               <span className="toggle-icon">{expandedSections.airDown ? '▼' : '▶'}</span>
-              🏜️ Air-Down Guidance
+              Air-Down Guidance
             </h3>
           </div>
 
