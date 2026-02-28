@@ -4,7 +4,7 @@
 
 Built by someone who understands Toyota builds, Jeep solid axle setups, and real overland reliability requirements.
 
-[![CI](https://github.com/realsystem/tires/actions/workflows/ci.yml/badge.svg)](https://github.com/realsystem/tires/actions)
+[![CI](https://github.com/realsystem/tires/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/realsystem/tires/actions/workflows/ci.yml)
 [![Docker Ready](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](docs/QUICKSTART_DOCKER.md)
 [![Production Build](https://img.shields.io/badge/Production-92.7MB-success?style=for-the-badge)](Dockerfile)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](package.json)
