@@ -55,7 +55,7 @@ const ResultsDisplay = ({ results, onReset }) => {
     <div className="results-display">
       <div className="results-header">
         <div className="results-title">
-          <h2>Tire Analysis Results</h2>
+          <h2>Compare Tires</h2>
           <p className="tire-comparison-label">
             {comparison.current.formatted} → {comparison.new.formatted}
           </p>
