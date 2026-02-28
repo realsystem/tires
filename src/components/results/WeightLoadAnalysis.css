@@ -37,9 +37,10 @@
 
 .weight-section h4,
 .load-section h4 {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   margin: 0;
   font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 
 .estimate-badge {
