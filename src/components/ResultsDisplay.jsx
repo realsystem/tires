@@ -8,6 +8,7 @@ import AdvisoryPanel from './results/AdvisoryPanel';
 import VisualComparison from './results/VisualComparison';
 import WeightLoadAnalysis from './results/WeightLoadAnalysis';
 import RotationalPhysics from './results/RotationalPhysics';
+import DrivetrainStress from './results/DrivetrainStress';
 import Toast from './Toast';
 import EmbedCodeGenerator from './EmbedCodeGenerator';
 import { exportToJSON, exportToCSV, exportToText } from '../utils/exportImport';
@@ -285,10 +286,13 @@ const ResultsDisplay = ({ results, onReset }) => {
                 )}
 
                 {!finalStateComparison && (
-                  <DrivetrainImpact
-                    drivetrainImpact={drivetrainComparison.drivetrainImpact}
-                    comparison={drivetrainComparison}
-                  />
+                  <>
+                    <DrivetrainImpact
+                      drivetrainImpact={drivetrainComparison.drivetrainImpact}
+                      comparison={drivetrainComparison}
+                    />
+                    <DrivetrainStress drivetrainStress={comparison.drivetrainStress} />
+                  </>
                 )}
               </>
             ) : (

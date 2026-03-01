@@ -6,6 +6,7 @@
 
 import { calculateCircumference, calculateRevolutionsPerMile } from './tireParser.js';
 import { calculateRotationalImpact } from './rotationalPhysics.js';
+import { calculateStressFromComparison } from './drivetrainStress.js';
 
 /**
  * Calculate comprehensive tire comparison
@@ -65,6 +66,23 @@ export function calculateTireComparison(currentTire, newTire, drivetrain = {}, t
     }
   );
 
+  // Build comparison object for stress calculation
+  const comparisonForStress = {
+    differences,
+    drivetrainImpact,
+    rotationalPhysics
+  };
+
+  // Drivetrain stress score (Part 2: Engineering Expansion)
+  // Requires drivetrain data to calculate
+  const drivetrainStress = drivetrainImpact
+    ? calculateStressFromComparison(
+        comparisonForStress,
+        drivetrain.vehicleWeight || 4500,
+        intendedUse
+      )
+    : null;
+
   return {
     current,
     new: newCalc,
@@ -75,6 +93,7 @@ export function calculateTireComparison(currentTire, newTire, drivetrain = {}, t
     weightAnalysis,
     loadCapacityAnalysis,
     rotationalPhysics,
+    drivetrainStress,
     timestamp: new Date().toISOString()
   };
 }
