@@ -7,6 +7,7 @@
 import { calculateCircumference, calculateRevolutionsPerMile } from './tireParser.js';
 import { calculateRotationalImpact } from './rotationalPhysics.js';
 import { calculateStressFromComparison } from './drivetrainStress.js';
+import { calculateClearanceProbability, getVehicleSuspensionType } from './clearanceProbability.js';
 
 /**
  * Calculate comprehensive tire comparison
@@ -34,7 +35,7 @@ export function calculateTireComparison(currentTire, newTire, drivetrain = {}, t
     : null;
 
   // Clearance and fitment
-  const clearance = calculateClearanceImpact(differences);
+  const clearance = calculateClearanceImpact(differences, newCalc, drivetrain);
 
   // Weight and load analysis
   // Use provided weights or estimate based on tire size
@@ -321,7 +322,7 @@ function calculateEngineRPM(tireDiameter, axleRatio, transRatio, speedMPH) {
  * NOTE: Lift recommendations are conservative. Many builds fit larger tires with
  * modifications like trimming, BMC, wheel offset changes, etc.
  */
-function calculateClearanceImpact(differences) {
+function calculateClearanceImpact(differences, newTire, drivetrain = {}) {
   const diameterIncrease = differences.diameter.inches;
   const widthIncrease = differences.width.inches;
 
@@ -365,6 +366,22 @@ function calculateClearanceImpact(differences) {
   // Backspacing/offset change needed
   const offsetChangeNeeded = widthIncrease > 1.5;
 
+  // Enhanced clearance probability analysis (Part 3: Engineering Expansion)
+  let probabilityAnalysis = null;
+  if (drivetrain.liftHeight !== undefined || drivetrain.suspensionType || drivetrain.vehicleType) {
+    const suspensionType = drivetrain.suspensionType || getVehicleSuspensionType(drivetrain.vehicleType || 'generic');
+
+    probabilityAnalysis = calculateClearanceProbability({
+      suspensionType,
+      liftHeight: drivetrain.liftHeight || 0,
+      diameterIncrease: Math.abs(diameterIncrease),
+      widthIncrease: Math.abs(widthIncrease),
+      newDiameter: newTire.diameter,
+      newWidth: newTire.widthInches,
+      vehicleType: drivetrain.vehicleType || 'generic'
+    });
+  }
+
   return {
     groundClearanceGain: differences.groundClearance.inches,
     estimatedLiftRequired: estimatedLiftRequired,
@@ -384,7 +401,8 @@ function calculateClearanceImpact(differences) {
     },
     bumpstopModification: diameterIncrease > 1.5
       ? 'Bump stop modification likely required to prevent tire contact at full compression'
-      : null
+      : null,
+    probabilityAnalysis // Enhanced clearance probability (Part 3)
   };
 }
 
