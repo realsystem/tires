@@ -7,6 +7,7 @@ import RegearRecommendations from './results/RegearRecommendations';
 import AdvisoryPanel from './results/AdvisoryPanel';
 import VisualComparison from './results/VisualComparison';
 import WeightLoadAnalysis from './results/WeightLoadAnalysis';
+import RotationalPhysics from './results/RotationalPhysics';
 import Toast from './Toast';
 import EmbedCodeGenerator from './EmbedCodeGenerator';
 import { exportToJSON, exportToCSV, exportToText } from '../utils/exportImport';
@@ -178,6 +179,7 @@ const ResultsDisplay = ({ results, onReset }) => {
                 loadCapacityAnalysis={comparison.loadCapacityAnalysis}
               />
             )}
+            <RotationalPhysics rotationalPhysics={comparison.rotationalPhysics} />
           </div>
         )}
 

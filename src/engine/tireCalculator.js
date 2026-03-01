@@ -5,6 +5,7 @@
  */
 
 import { calculateCircumference, calculateRevolutionsPerMile } from './tireParser.js';
+import { calculateRotationalImpact } from './rotationalPhysics.js';
 
 /**
  * Calculate comprehensive tire comparison
@@ -52,6 +53,18 @@ export function calculateTireComparison(currentTire, newTire, drivetrain = {}, t
     ? calculateLoadCapacity(tireSpecs, intendedUse)
     : null;
 
+  // Rotational physics analysis (Part 1: Engineering Expansion)
+  const rotationalPhysics = calculateRotationalImpact(
+    {
+      size: currentTire.originalSize || formatDisplay(currentTire),
+      diameter: current.diameter
+    },
+    {
+      size: newTire.originalSize || formatDisplay(newTire),
+      diameter: newCalc.diameter
+    }
+  );
+
   return {
     current,
     new: newCalc,
@@ -61,6 +74,7 @@ export function calculateTireComparison(currentTire, newTire, drivetrain = {}, t
     clearance,
     weightAnalysis,
     loadCapacityAnalysis,
+    rotationalPhysics,
     timestamp: new Date().toISOString()
   };
 }
