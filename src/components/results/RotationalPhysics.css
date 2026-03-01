@@ -1,0 +1,400 @@
+.rotational-physics {
+  margin: 1.5rem 0;
+}
+
+.rotational-physics .section-hint {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Confidence Notice */
+.confidence-notice {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+.confidence-notice small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header h4 {
+  margin: 0;
+  color: #2c5282;
+}
+
+.confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.25rem;
+}
+
+.confidence-badge.high {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Weight Comparison Grid */
+.weight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weight-item {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #e9ecef;
+}
+
+.weight-item.negative {
+  background: #fff5f5;
+  border-left-color: #fc8181;
+}
+
+.weight-item.positive {
+  background: #f0fff4;
+  border-left-color: #68d391;
+}
+
+.weight-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.weight-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.total-change {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 400;
+}
+
+/* Inertia Section */
+.inertia-section {
+  background: #f7fafc;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.physics-note {
+  color: #4a5568;
+  font-style: italic;
+}
+
+.inertia-impact {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.inertia-impact.severity-low {
+  border-left: 4px solid #48bb78;
+}
+
+.inertia-impact.severity-moderate {
+  border-left: 4px solid #ed8936;
+}
+
+.inertia-impact.severity-high {
+  border-left: 4px solid #f56565;
+}
+
+.impact-metric {
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2d3748;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #718096;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.impact-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+
+.category-badge.low {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.category-badge.moderate {
+  background: #feebc8;
+  color: #7c2d12;
+}
+
+.category-badge.high {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.category-description {
+  margin: 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+/* Physics Breakdown */
+.physics-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.breakdown-item {
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.breakdown-item strong {
+  display: block;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.breakdown-item small {
+  color: #718096;
+  font-size: 0.8rem;
+}
+
+/* Performance Grid */
+.performance-section {
+  margin: 1.5rem 0;
+}
+
+.performance-section h4 {
+  margin-bottom: 1rem;
+  color: #2c5282;
+}
+
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.performance-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.performance-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.performance-card strong {
+  display: block;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.performance-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.performance-value.info {
+  color: #3182ce;
+}
+
+.performance-value.warning {
+  color: #d69e2e;
+}
+
+.performance-description {
+  font-size: 0.85rem;
+  color: #718096;
+  margin: 0.75rem 0 0 0;
+  line-height: 1.4;
+}
+
+/* Recommendations */
+.recommendations-section {
+  background: #edf2f7;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.recommendations-section h4 {
+  margin: 0 0 1rem 0;
+  color: #2c5282;
+}
+
+.recommendations-list {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.recommendation-item {
+  position: relative;
+  padding: 0.5rem 0;
+  padding-left: 0.5rem;
+  color: #2d3748;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.recommendation-item::before {
+  content: '→';
+  position: absolute;
+  left: -1rem;
+  color: #4299e1;
+  font-weight: 700;
+}
+
+/* Summary */
+.summary-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.summary-text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.summary-text strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* Methodology Note */
+.methodology-note {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.methodology-note summary {
+  cursor: pointer;
+  color: #4a5568;
+  font-weight: 600;
+  user-select: none;
+  padding: 0.25rem 0;
+}
+
+.methodology-note summary:hover {
+  color: #2d3748;
+}
+
+.methodology-content {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.methodology-content p {
+  margin: 0.75rem 0;
+}
+
+.methodology-content strong {
+  color: #2d3748;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .weight-grid,
+  .performance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inertia-impact {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .impact-category {
+    align-items: center;
+  }
+
+  .category-badge {
+    align-self: center;
+  }
+
+  .physics-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-value {
+    font-size: 1.75rem;
+  }
+}

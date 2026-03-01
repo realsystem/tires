@@ -1,0 +1,175 @@
+{
+  "tires": {
+    "265/70R17": {
+      "weight_lbs": 48,
+      "category": "stock_light_truck",
+      "common_applications": ["Tacoma SR5", "4Runner SR5", "Colorado ZR2"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "265/70R16": {
+      "weight_lbs": 46,
+      "category": "stock_light_truck",
+      "common_applications": ["Tacoma (2005-2015)", "FJ Cruiser"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "285/75R17": {
+      "weight_lbs": 58,
+      "category": "33_inch_upgrade",
+      "common_applications": ["Tacoma TRD OR upgrade", "4Runner upgrade"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "285/70R17": {
+      "weight_lbs": 54,
+      "category": "stock_light_truck",
+      "common_applications": ["JL Rubicon stock", "Gladiator Rubicon"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "315/70R17": {
+      "weight_lbs": 65,
+      "category": "34_inch_upgrade",
+      "common_applications": ["Bronco Sasquatch", "Gladiator Mojave"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "33x10.50R15": {
+      "weight_lbs": 60,
+      "category": "33_inch_classic",
+      "common_applications": ["Classic 4x4 builds", "XJ Cherokee lift"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "35x12.50R17": {
+      "weight_lbs": 71,
+      "category": "35_inch_upgrade",
+      "common_applications": ["JL 35 upgrade", "Tacoma 35 build"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "35x12.50R20": {
+      "weight_lbs": 74,
+      "category": "35_inch_upgrade",
+      "common_applications": ["F-150 Raptor", "Silverado ZR2"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "37x12.50R17": {
+      "weight_lbs": 82,
+      "category": "37_inch_extreme",
+      "common_applications": ["JL extreme build", "Bronco extreme"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "37x13.50R17": {
+      "weight_lbs": 86,
+      "category": "37_inch_extreme",
+      "common_applications": ["Competition crawling", "Extreme builds"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "40x13.50R17": {
+      "weight_lbs": 95,
+      "category": "40_inch_extreme",
+      "common_applications": ["Rock bouncers", "Extreme rock crawling"],
+      "data_source": "Manufacturer specs",
+      "confidence": "medium"
+    },
+    "255/75R17": {
+      "weight_lbs": 45,
+      "category": "stock_light_truck",
+      "common_applications": ["4Runner Limited", "GX470"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "275/70R18": {
+      "weight_lbs": 52,
+      "category": "stock_light_truck",
+      "common_applications": ["F-150", "Silverado 1500"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "285/70R18": {
+      "weight_lbs": 58,
+      "category": "light_upgrade",
+      "common_applications": ["Tundra upgrade", "F-150 upgrade"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "255/80R17": {
+      "weight_lbs": 50,
+      "category": "stock_light_truck",
+      "common_applications": ["F-250 Super Duty", "Ram 2500"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "265/65R17": {
+      "weight_lbs": 42,
+      "category": "stock_light_truck",
+      "common_applications": ["Canyon", "Frontier"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "275/65R18": {
+      "weight_lbs": 48,
+      "category": "stock_light_truck",
+      "common_applications": ["Grand Cherokee", "Durango"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "285/75R16": {
+      "weight_lbs": 57,
+      "category": "33_inch_upgrade",
+      "common_applications": ["Tacoma (2005-2015) upgrade", "FJ upgrade"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "33x12.50R15": {
+      "weight_lbs": 63,
+      "category": "33_inch_classic",
+      "common_applications": ["Classic Jeep builds", "TJ Wrangler"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    },
+    "35x12.50R15": {
+      "weight_lbs": 70,
+      "category": "35_inch_classic",
+      "common_applications": ["TJ extreme build", "YJ build"],
+      "data_source": "TireRack measured weight",
+      "confidence": "high"
+    }
+  },
+  "fallback_weights": {
+    "diameter_based_estimates": {
+      "30-31": 45,
+      "31-32": 50,
+      "32-33": 55,
+      "33-34": 62,
+      "34-35": 68,
+      "35-36": 73,
+      "36-37": 78,
+      "37-38": 84,
+      "38-39": 90,
+      "39-40": 94,
+      "40+": 100
+    },
+    "confidence": "low",
+    "note": "Estimates based on diameter only. Actual weight varies significantly by construction (E-rated vs C-rated, mud-terrain vs all-terrain)."
+  },
+  "metadata": {
+    "last_updated": "2026-03-01",
+    "data_sources": [
+      "TireRack measured weights (primary source)",
+      "Manufacturer specifications (verified)",
+      "Community measurements (high-confidence only)"
+    ],
+    "notes": [
+      "All weights are for unmounted tires",
+      "Load Range E tires typically 10-15% heavier than C-rated",
+      "Mud-terrain tires typically 5-10% heavier than all-terrain",
+      "These are representative weights; specific models may vary ±5%"
+    ]
+  }
+}
