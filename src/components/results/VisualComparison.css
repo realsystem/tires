@@ -14,51 +14,53 @@
 }
 
 .tire-visual-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
   background: var(--color-bg-tertiary);
   border-radius: var(--radius-md);
-}
-
-.tire-column {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: var(--spacing-md);
 }
 
-.tire-label {
-  font-weight: 600;
-  font-size: var(--font-size-lg);
-  color: var(--color-text-primary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.tire-svg {
+.tire-svg-overlap {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
+/* Ground line */
+.ground-line {
+  stroke: var(--color-border);
+  stroke-dasharray: 8, 4;
+}
+
+/* Tire groups */
+.tire-group.current {
+  opacity: 1;
+}
+
+.tire-group.new {
+  opacity: 1;
+}
+
+/* Tire outer circle */
 .tire-outer {
   fill: none;
-  stroke-width: 3;
 }
 
 .tire-outer.current {
   stroke: var(--color-text-muted);
+  fill: rgba(150, 150, 150, 0.05);
 }
 
 .tire-outer.new {
   stroke: var(--color-accent);
+  fill: rgba(88, 166, 255, 0.05);
 }
 
+/* Tire inner circle (wheel/rim) */
 .tire-inner {
   fill: var(--color-bg-secondary);
-  stroke-width: 2;
 }
 
 .tire-inner.current {
@@ -67,56 +69,19 @@
 
 .tire-inner.new {
   stroke: var(--color-accent);
+  fill: var(--color-bg-card);
 }
 
+/* Center hub */
 .tire-center {
   fill: var(--color-text-muted);
 }
 
-.tire-diameter-line {
-  stroke: var(--color-border);
-  stroke-width: 1;
+.tire-center.new {
+  fill: var(--color-accent);
 }
 
-.tire-width-indicator {
-  fill: currentColor;
-}
-
-.tire-width-indicator.current {
-  color: var(--color-text-muted);
-}
-
-.tire-width-indicator.new {
-  color: var(--color-accent);
-}
-
-.tire-specs {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  align-items: center;
-  padding: var(--spacing-md);
-  background: var(--color-bg-card);
-  border-radius: var(--radius-md);
-  width: 100%;
-}
-
-.tire-specs .spec {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-
-.tire-column:last-child .spec {
-  color: var(--color-accent);
-}
-
-.tire-specs .spec-detail {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-}
-
+/* Stats section */
 .comparison-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -175,14 +140,14 @@
 /* Responsive */
 @media (max-width: 768px) {
   .tire-visual-container {
-    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
   }
 
   .comparison-stats {
     grid-template-columns: 1fr;
   }
 
-  .tire-svg {
-    max-width: 300px;
+  .tire-svg-overlap {
+    max-width: 100%;
   }
 }
