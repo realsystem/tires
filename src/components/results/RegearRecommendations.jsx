@@ -18,6 +18,29 @@ const RegearRecommendations = ({ regearRecommendations, comparison, vehicleType 
     ? filteredExamples
     : realWorldExamples;
 
+  // Generate forum search URL for a specific build
+  const getForumSearchUrl = (example) => {
+    const vehicle = example.vehicleType.toLowerCase();
+    const tireSize = Math.round(example.newTireDiameter);
+    const gearRatio = example.recommendedGearRatio.toFixed(2);
+
+    // Map vehicle types to their popular forums
+    if (vehicle.includes('tacoma')) {
+      return `https://www.tacomaworld.com/search/1/?q=${tireSize}"+regear+${gearRatio}&o=relevance`;
+    } else if (vehicle.includes('4runner')) {
+      return `https://www.toyota-4runner.org/search/?q=${tireSize}"+regear+${gearRatio}&o=relevance`;
+    } else if (vehicle.includes('wrangler')) {
+      return `https://www.wranglerforum.com/search/1/?q=${tireSize}"+regear+${gearRatio}&o=relevance`;
+    } else if (vehicle.includes('gladiator')) {
+      return `https://www.jlwranglerforums.com/search/?q=${tireSize}"+gladiator+regear+${gearRatio}&o=relevance`;
+    } else if (vehicle.includes('bronco')) {
+      return `https://www.bronco6g.com/search/?q=${tireSize}"+regear+${gearRatio}&o=relevance`;
+    } else {
+      // Generic Google search for unknown vehicles
+      return `https://www.google.com/search?q=${encodeURIComponent(vehicle + ' ' + tireSize + '" tires regear ' + gearRatio)}`;
+    }
+  };
+
   const getNecessityBadge = (level) => {
     const badges = {
       strongly_recommended: { icon: '🔴', label: 'STRONGLY RECOMMENDED', class: 'critical' },
@@ -169,7 +192,14 @@ const RegearRecommendations = ({ regearRecommendations, comparison, vehicleType 
 
           <div className="examples-grid">
             {displayExamples.map((example, i) => (
-              <div key={i} className="example-card">
+              <a
+                key={i}
+                href={getForumSearchUrl(example)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="example-card"
+                title="Search forums for this build"
+              >
                 <div className="example-header">
                   <strong>{example.vehicleType}</strong>
                   <span className="example-gear">{example.recommendedGearRatio.toFixed(2)}</span>
@@ -187,7 +217,7 @@ const RegearRecommendations = ({ regearRecommendations, comparison, vehicleType 
                     <div className="example-notes">{example.notes}</div>
                   )}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
