@@ -325,6 +325,7 @@ const ResultsDisplay = ({ results, onReset }) => {
               <RegearRecommendations
                 regearRecommendations={regearRecommendations}
                 comparison={comparison}
+                vehicleType={formData.vehicleType}
               />
             ) : (
               <div className="no-data-message">

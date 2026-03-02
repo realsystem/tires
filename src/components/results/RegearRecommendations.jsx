@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import './RegearRecommendations.css';
 
-const RegearRecommendations = ({ regearRecommendations, comparison }) => {
+const RegearRecommendations = ({ regearRecommendations, comparison, vehicleType }) => {
   const { necessity, useCase, currentRatio, recommendations, analysis, realWorldExamples } = regearRecommendations;
   const [selectedRatio, setSelectedRatio] = useState(recommendations[0]?.ratio);
+
+  // Filter examples by vehicle type if specified
+  const filteredExamples = vehicleType && realWorldExamples
+    ? realWorldExamples.filter(example =>
+        example.vehicleType.toLowerCase().includes(vehicleType.toLowerCase()) ||
+        vehicleType.toLowerCase().includes(example.vehicleType.toLowerCase())
+      )
+    : realWorldExamples;
+
+  // If filtering results in no examples, fall back to showing all examples
+  const displayExamples = filteredExamples && filteredExamples.length > 0
+    ? filteredExamples
+    : realWorldExamples;
 
   const getNecessityBadge = (level) => {
     const badges = {
@@ -145,15 +158,17 @@ const RegearRecommendations = ({ regearRecommendations, comparison }) => {
         )}
       </div>
 
-      {realWorldExamples && realWorldExamples.length > 0 && (
+      {displayExamples && displayExamples.length > 0 && (
         <div className="card real-world-examples">
           <h3>Real-World Builds</h3>
           <p className="section-desc">
-            Examples of similar tire upgrades from the community and manufacturers
+            {vehicleType && filteredExamples && filteredExamples.length > 0
+              ? `Examples for ${vehicleType} with similar tire upgrades`
+              : 'Examples of similar tire upgrades from the community and manufacturers'}
           </p>
 
           <div className="examples-grid">
-            {realWorldExamples.map((example, i) => (
+            {displayExamples.map((example, i) => (
               <div key={i} className="example-card">
                 <div className="example-header">
                   <strong>{example.vehicleType}</strong>
