@@ -22,15 +22,10 @@ const ClearanceImpact = ({ clearance, differences }) => {
         </div>
 
         <div className={`clearance-item ${estimatedLiftRequired > 0 ? 'warning' : 'positive'}`}>
-          <div className="clearance-icon">{estimatedLiftRequired > 0 ? '📐' : '✓'}</div>
+          <div className="clearance-icon">{estimatedLiftRequired > 0 ? '⚠️' : '✓'}</div>
           <div className="clearance-content">
             <h4>Suspension Lift</h4>
-            <p className="clearance-value">
-              {estimatedLiftRequired > 0
-                ? `~${estimatedLiftRequired}" lift recommended`
-                : 'May fit stock height'}
-            </p>
-            <p className="clearance-note">{liftRecommendation}</p>
+            <p className="clearance-value">{liftRecommendation}</p>
             {modificationsNote && (
               <p className="clearance-mods-note">
                 {modificationsNote}
@@ -55,7 +50,7 @@ const ClearanceImpact = ({ clearance, differences }) => {
         </div>
 
         <div className={`clearance-item ${wheelOffset.changeNeeded ? 'warning' : 'positive'}`}>
-          <div className="clearance-icon">{wheelOffset.changeNeeded ? '🔧' : '✓'}</div>
+          <div className="clearance-icon">{wheelOffset.changeNeeded ? '⚠️' : '✓'}</div>
           <div className="clearance-content">
             <h4>Wheel Offset</h4>
             <p className="clearance-note">{wheelOffset.message}</p>
