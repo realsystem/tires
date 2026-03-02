@@ -286,14 +286,14 @@ const ResultsDisplay = ({ results, onReset }) => {
                 )}
 
                 {!finalStateComparison && (
-                  <>
-                    <DrivetrainImpact
-                      drivetrainImpact={drivetrainComparison.drivetrainImpact}
-                      comparison={drivetrainComparison}
-                    />
-                    <DrivetrainStress drivetrainStress={comparison.drivetrainStress} />
-                  </>
+                  <DrivetrainImpact
+                    drivetrainImpact={drivetrainComparison.drivetrainImpact}
+                    comparison={drivetrainComparison}
+                  />
                 )}
+
+                {/* Always show DrivetrainStress when available */}
+                <DrivetrainStress drivetrainStress={comparison.drivetrainStress} />
               </>
             ) : (
               <div className="no-data-message">
