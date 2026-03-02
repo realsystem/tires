@@ -15,7 +15,7 @@ const VisualComparison = ({ comparison }) => {
   const maxDiameter = Math.max(currentDiameter, newDiameter);
   const spacing = 40; // Space between tires
   const containerWidth = currentDiameter + newDiameter + spacing + 40; // Add padding
-  const containerHeight = maxDiameter + 40;
+  const containerHeight = maxDiameter + 60; // Extra space for labels
 
   // Ground line at bottom
   const groundY = containerHeight - 20;
@@ -92,6 +92,24 @@ const VisualComparison = ({ comparison }) => {
                 className="tire-center new"
               />
             </g>
+
+            {/* Diameter labels */}
+            <text
+              x={currentCenterX}
+              y={groundY + 20}
+              className="tire-label current"
+              textAnchor="middle"
+            >
+              {current.diameter.toFixed(1)}"
+            </text>
+            <text
+              x={newCenterX}
+              y={groundY + 20}
+              className="tire-label new"
+              textAnchor="middle"
+            >
+              {newTire.diameter.toFixed(1)}"
+            </text>
           </svg>
         </div>
 
