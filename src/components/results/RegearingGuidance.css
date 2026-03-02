@@ -42,13 +42,6 @@
 .consensus-statement {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
-}
-
-.consensus-icon {
-  font-size: 3rem;
-  line-height: 1;
-  flex-shrink: 0;
 }
 
 .consensus-text h4 {
@@ -263,11 +256,6 @@
   }
 
   .consensus-statement {
-    flex-direction: column;
     text-align: center;
-  }
-
-  .consensus-icon {
-    font-size: 2.5rem;
   }
 }

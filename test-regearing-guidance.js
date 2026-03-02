@@ -24,16 +24,16 @@ const tacoma33 = calculateTireComparison(
 if (tacoma33.regearingGuidance) {
   const g = tacoma33.regearingGuidance;
   console.log('\n✅ Consensus:', g.consensus);
-  console.log('📊 Likelihood:', g.likelihood, 'of users regear');
-  console.log('💡 Reality Check:', g.realityCheck);
-  console.log('\n📋 Recommendation:', g.recommendation);
+  console.log('Likelihood:', g.likelihood, 'of users regear');
+  console.log('Reality Check:', g.realityCheck);
+  console.log('\nRecommendation:', g.recommendation);
   console.log('\nWhy people DO regear:');
   g.whyRegear.forEach(r => console.log('  •', r));
   console.log('\nWhy people DON\'T regear:');
   g.whyNotRegear.forEach(r => console.log('  •', r));
-  console.log('\n💰', g.costContext);
+  console.log('\n', g.costContext);
 } else {
-  console.log('❌ No guidance available (missing gear ratio data)');
+  console.log('No guidance available (missing gear ratio data)');
 }
 
 // TEST 2: Jeep 35" upgrade (daily driver)
@@ -52,11 +52,11 @@ const jeep35 = calculateTireComparison(
 if (jeep35.regearingGuidance) {
   const g = jeep35.regearingGuidance;
   console.log('\n✅ Consensus:', g.consensus);
-  console.log('📊 Likelihood:', g.likelihood, 'of users regear');
-  console.log('💡 Reality Check:', g.realityCheck);
-  console.log('\n📋 Recommendation:', g.recommendation);
-  console.log('\n⚙️ Transmission Note:', g.transmissionNote);
-  console.log('\n💰', g.costContext);
+  console.log('Likelihood:', g.likelihood, 'of users regear');
+  console.log('Reality Check:', g.realityCheck);
+  console.log('\nRecommendation:', g.recommendation);
+  console.log('\nTransmission Note:', g.transmissionNote);
+  console.log('\n', g.costContext);
 }
 
 // TEST 3: 4Runner 37" upgrade
@@ -75,10 +75,10 @@ const runner37 = calculateTireComparison(
 if (runner37.regearingGuidance) {
   const g = runner37.regearingGuidance;
   console.log('\n✅ Consensus:', g.consensus);
-  console.log('📊 Likelihood:', g.likelihood, 'of users regear');
-  console.log('💡 Reality Check:', g.realityCheck);
-  console.log('\n📋 Recommendation:', g.recommendation);
-  console.log('\n⚙️ Transmission Note:', g.transmissionNote);
+  console.log('Likelihood:', g.likelihood, 'of users regear');
+  console.log('Reality Check:', g.realityCheck);
+  console.log('\nRecommendation:', g.recommendation);
+  console.log('\nTransmission Note:', g.transmissionNote);
 }
 
 // TEST 4: Minimal change (should say no regearing needed)
@@ -97,7 +97,7 @@ const minimal = calculateTireComparison(
 if (minimal.regearingGuidance) {
   const g = minimal.regearingGuidance;
   console.log('\n✅ Consensus:', g.consensus);
-  console.log('📋 Recommendation:', g.recommendation);
+  console.log('Recommendation:', g.recommendation);
 }
 
 console.log('\n\n==================================================');
