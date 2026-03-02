@@ -56,14 +56,20 @@ export function calculateTireComparison(currentTire, newTire, drivetrain = {}, t
     : null;
 
   // Rotational physics analysis (Part 1: Engineering Expansion)
+  // Pass the same weights used in weightAnalysis to ensure consistency
+  const isWeightEstimated = !tireSpecs.currentTireWeight || !tireSpecs.newTireWeight;
   const rotationalPhysics = calculateRotationalImpact(
     {
       size: currentTire.originalSize || formatDisplay(currentTire),
-      diameter: current.diameter
+      diameter: current.diameter,
+      weight: currentWeight,
+      isEstimated: !tireSpecs.currentTireWeight
     },
     {
       size: newTire.originalSize || formatDisplay(newTire),
-      diameter: newCalc.diameter
+      diameter: newCalc.diameter,
+      weight: newWeight,
+      isEstimated: !tireSpecs.newTireWeight
     }
   );
 

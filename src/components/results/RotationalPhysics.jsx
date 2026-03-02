@@ -22,43 +22,6 @@ const RotationalPhysics = ({ rotationalPhysics }) => {
         </div>
       )}
 
-      {/* Tire Weight Comparison */}
-      <div className="weight-comparison">
-        <div className="section-header">
-          <h4>Tire Weight Comparison</h4>
-          {confidence.overall === 'HIGH' && (
-            <span className="confidence-badge high" title="Weights from TireRack measured data">
-              ✓ High Confidence
-            </span>
-          )}
-        </div>
-
-        <div className="weight-grid">
-          <div className="weight-item">
-            <div className="weight-label">Current: {current.tire}</div>
-            <div className="weight-value">{current.weight_lbs} lbs per tire</div>
-          </div>
-
-          <div className="weight-item">
-            <div className="weight-label">New: {newTire.tire}</div>
-            <div className="weight-value">{newTire.weight_lbs} lbs per tire</div>
-          </div>
-
-          <div className={`weight-item ${changes.weight.delta_lbs > 0 ? 'negative' : 'positive'}`}>
-            <div className="weight-label">Weight Change</div>
-            <div className="weight-value">
-              {changes.weight.delta_lbs > 0 ? '+' : ''}
-              {changes.weight.delta_lbs.toFixed(1)} lbs per tire
-              <br />
-              <span className="total-change">
-                ({changes.weight.delta_lbs > 0 ? '+' : ''}
-                {changes.weight.all_four_tires.toFixed(0)} lbs total)
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Rotational Inertia Analysis */}
       <div className="inertia-section">
         <div className="section-header">
