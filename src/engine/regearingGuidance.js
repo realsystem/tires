@@ -36,13 +36,13 @@ export function getRegearingGuidance(params) {
   if (absDiameterChange < 2) {
     scenario = 'minimal';
   } else if (absDiameterChange < 5) {
-    scenario = 'small'; // ~33" tires
-  } else if (absDiameterChange < 9) {
-    scenario = 'moderate'; // 35" tires
-  } else if (absDiameterChange < 13) {
-    scenario = 'large'; // 37" tires
+    scenario = 'small'; // ~33" tires (1-2" increase)
+  } else if (absDiameterChange < 12) {
+    scenario = 'moderate'; // 35" tires (3-4" increase)
+  } else if (absDiameterChange < 20) {
+    scenario = 'large'; // 37" tires (5-6" increase)
   } else {
-    scenario = 'extreme'; // 40"+ tires
+    scenario = 'extreme'; // 40"+ tires (8"+ increase)
   }
 
   // Get guidance based on scenario
@@ -119,7 +119,7 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
       };
 
     case 'moderate':
-      // 35" tires (5-9% diameter increase)
+      // 35" tires (5-12% diameter increase)
       return {
         likelihood: dailyDriver ? '60%' : '40%',
         consensus: 'About half regear for 35" tires',
@@ -152,7 +152,7 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
       };
 
     case 'large':
-      // 37" tires (9-13% diameter increase)
+      // 37" tires (12-20% diameter increase)
       return {
         likelihood: '80%',
         consensus: 'Most people regear for 37" tires',
@@ -178,7 +178,7 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
       };
 
     case 'extreme':
-      // 40"+ tires (>13% diameter increase)
+      // 40"+ tires (>20% diameter increase)
       return {
         likelihood: '95%',
         consensus: 'Nearly everyone regears for 40"+ tires',
