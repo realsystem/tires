@@ -106,7 +106,6 @@ const RotationalPhysics = ({ rotationalPhysics }) => {
 
         <div className="performance-grid">
           <div className="performance-card">
-            <div className="performance-icon">🚀</div>
             <strong>Acceleration</strong>
             <div className={`performance-value ${Math.abs(performance_impact.acceleration.impact_pct) > 3 ? 'warning' : 'info'}`}>
               {performance_impact.acceleration.impact_pct > 0 ? '+' : ''}
@@ -116,7 +115,6 @@ const RotationalPhysics = ({ rotationalPhysics }) => {
           </div>
 
           <div className="performance-card">
-            <div className="performance-icon">🛑</div>
             <strong>Braking</strong>
             <div className={`performance-value ${Math.abs(performance_impact.braking.impact_pct) > 3 ? 'warning' : 'info'}`}>
               {performance_impact.braking.impact_pct > 0 ? '+' : ''}
@@ -126,7 +124,6 @@ const RotationalPhysics = ({ rotationalPhysics }) => {
           </div>
 
           <div className="performance-card">
-            <div className="performance-icon">⚖️</div>
             <strong>Unsprung Mass</strong>
             <div className={`performance-value ${Math.abs(performance_impact.unsprung_mass.increase_lbs) > 40 ? 'warning' : 'info'}`}>
               {performance_impact.unsprung_mass.increase_lbs > 0 ? '+' : ''}
