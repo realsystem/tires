@@ -4,17 +4,15 @@
 
 Built by someone who understands Toyota builds, Jeep solid axle setups, and real overland reliability requirements.
 
-[![CI](https://github.com/realsystem/tires/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/realsystem/tires/actions/workflows/ci.yml)
-[![Docker Ready](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](docs/QUICKSTART_DOCKER.md)
-[![Production Build](https://img.shields.io/badge/Production-92.7MB-success?style=for-the-badge)](Dockerfile)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](package.json)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](vite.config.js)
+[![Docker Ready](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](docs/DOCKER.md)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](package.json)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)](vite.config.js)
 
 **Live Demo**: https://overlandn.com/tires/ · https://realsystem.github.io/tires/
 
 **Run Locally**: `./start.sh` → Select option 1 → Open http://localhost:8080
 
-**Docs**: [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Embed & Share](docs/EMBED_AND_SHARE.md) · [Tacoma Guide](docs/TACOMA_3909_GUIDE.md) · [Intended Use](docs/INTENDED_USE_GUIDE.md) · [Deployment](docs/DEPLOYMENT.md) · [Docker](docs/DOCKER.md) · [Validation Report](docs/COMPREHENSIVE_VALIDATION_REPORT.md)
+**Docs**: [Examples](docs/EXAMPLES.md) · [Docker Guide](docs/DOCKER.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Tacoma Guide](docs/TACOMA_3909_GUIDE.md) · [Intended Use](docs/INTENDED_USE_GUIDE.md)
 
 ---
 
@@ -40,9 +38,9 @@ Why people DO regear:
   • Frequent towing or mountains
 
 Why people DON'T regear:
-  • Cost: $2,000-$3,000
   • V6 engine has enough torque
   • Weekend use only
+  • Can tolerate 1-2 MPG loss
 ```
 
 ### Real Examples
@@ -67,10 +65,10 @@ Why people DON'T regear:
 - **Import/Export**: Save calculations as JSON, CSV, or text reports. No account needed.
 
 ### Re-Gearing Intelligence
-- Smart gear ratio recommendations based on use case
-- Performance restoration vs optimal gearing analysis
-- Cost estimates and installation timeline
-- Crawl ratio optimization for rock crawling
+- Real-world regearing guidance based on forum data
+- Usage-aware recommendations (daily driver vs rock crawler)
+- Transmission type considerations (automatic vs manual)
+- Crawl ratio optimization for technical terrain
 
 ### Build Impact Assessment
 - Suspension lift requirements
@@ -85,12 +83,10 @@ Why people DON'T regear:
 - Overlanding range and reliability advice
 - Load rating and sidewall durability warnings
 
-### Sharing & Embedding (Phase 3)
-- **Forum Export**: One-click copy for Tacoma World, IH8MUD, JeepForum
-- **BBCode Support**: Formatted output for BBCode-enabled forums
-- **Embeddable Widget**: Standalone calculator for blogs and websites
-- **Direct URL Sharing**: Pre-filled comparisons via URL parameters
-- **Embed Code Generator**: Visual tool to create iframe embeds
+### Sharing & Export
+- **Import/Export**: Save calculations as JSON, CSV, or text reports
+- **Forum-Friendly**: Copy results for forum posts
+- **URL Sharing**: Share comparisons via URL parameters
 
 ---
 
@@ -155,147 +151,7 @@ npm run preview
 npm test
 ```
 
----
-
-## Docker Deployment
-
-### Architecture
-
-The application uses a **multi-stage Docker build**:
-
-1. **Build Stage** (Node 18 Alpine):
-   - Installs dependencies
-   - Builds production-optimized React bundle with Vite
-   - Tree-shaking and minification applied
-
-2. **Runtime Stage** (Nginx Alpine):
-   - Serves static files with nginx
-   - Gzip compression enabled
-   - Security headers configured
-   - SPA routing handled
-   - ~50MB final image size
-
-### Available Services
-
-#### Production Container
-```yaml
-Service: tire-calculator
-Port: 8080
-Image: Multi-stage (node:18-alpine + nginx:alpine)
-Use: Production deployment
-```
-
-#### Development Container
-```yaml
-Service: tire-calculator-dev
-Port: 3000
-Image: node:18-alpine
-Use: Local development with hot reload
-Profile: dev
-```
-
-### Configuration
-
-**Custom Port** (production):
-```bash
-# Edit docker-compose.yml
-ports:
-  - "8888:80"  # Change 8080 to 8888
-```
-
-**Environment Variables** (if needed):
-```bash
-# Add to docker-compose.yml under tire-calculator service
-environment:
-  - NODE_ENV=production
-  - VITE_API_URL=https://api.example.com
-```
-
-### Production Deployment
-
-**Using Docker Compose**:
-```bash
-# Start
-docker-compose up -d tire-calculator
-
-# View logs
-docker-compose logs -f tire-calculator
-
-# Stop
-docker-compose down
-
-# Update and restart
-git pull
-docker-compose up -d --build tire-calculator
-```
-
-**Using Docker Directly**:
-```bash
-# Build
-docker build -t tire-calculator .
-
-# Run
-docker run -d -p 8080:80 --name tire-calculator tire-calculator
-
-# Stop
-docker stop tire-calculator
-docker rm tire-calculator
-```
-
-### Health Checks
-
-The production container includes health checks:
-```bash
-# Check health status
-docker inspect --format='{{.State.Health.Status}}' tire-calculator
-
-# View health check logs
-docker inspect --format='{{range .State.Health.Log}}{{.Output}}{{end}}' tire-calculator
-```
-
-### Troubleshooting
-
-**Container won't start**:
-```bash
-# Check logs
-docker-compose logs tire-calculator
-
-# Verify port is free
-lsof -i :8080
-
-# Rebuild from scratch
-docker-compose down -v
-docker-compose build --no-cache tire-calculator
-docker-compose up tire-calculator
-```
-
-**Development mode not hot-reloading**:
-```bash
-# Ensure volume is mounted correctly
-docker-compose --profile dev down
-docker-compose --profile dev up tire-calculator-dev
-```
-
-**Permission issues (Linux)**:
-```bash
-# Fix node_modules permissions
-sudo chown -R $USER:$USER .
-```
-
-### Performance
-
-**Production Container**:
-- Image size: ~50MB
-- Startup time: <2 seconds
-- Memory usage: ~10MB
-- Nginx serves assets with gzip compression
-- Static assets cached for 1 year
-
-**Development Container**:
-- Hot reload enabled
-- Vite dev server with HMR
-- Source maps enabled
-- Volume-mounted for instant updates
+For detailed Docker deployment instructions, see [Docker Guide](docs/DOCKER.md).
 
 ---
 
@@ -547,59 +403,6 @@ This calculator provides estimates based on mathematical formulas and common fit
 
 Consult with professional installers for major modifications. Test fit before cutting or trimming.
 
----
-
-## Authority & Research Infrastructure (Phase 6)
-
-This tool is built to be the **industry reference standard** for tire and gear ratio decisions.
-
-### Published Resources
-
-**Methodology** (`/methodology/`)
-- Complete formula disclosure
-- Validation data (253 builds)
-- Accuracy metrics with sample sizes
-- Version control and changelog
-- [View Methodology](https://overlandn.com/tires/methodology/)
-
-**Research Studies** (`/research/`)
-- RES-2026-001: Gear Ratio vs. Tire Diameter
-- Empirical thresholds for regearing
-- Statistical significance reporting
-- Citation-ready format
-- [Browse Research](https://overlandn.com/tires/research/)
-
-**Annual Reports** (`/reports/`)
-- 2026 Overland Drivetrain Report
-- Tire upgrade trends
-- Regear decision analysis
-- Industry benchmarks
-- [Read 2026 Report](https://overlandn.com/tires/reports/2026-overland-drivetrain-report/)
-
-**Verification Badges** (`/badges/`)
-- Embeddable stress score verification
-- Third-party credibility
-- Backlink generation
-- [Get Badge](https://overlandn.com/tires/badges/)
-
-### Contribute
-
-We welcome contributions from engineers, builders, and fabricators:
-- Technical corrections via [GitHub Issues](https://github.com/realsystem/tires/issues)
-- Data contributions via email: research@overlandn.com
-- [Contribution Guidelines](https://overlandn.com/tires/contribute/)
-
-### Transparency Commitment
-
-- ✅ All formulas are open source
-- ✅ All assumptions are documented
-- ✅ All limitations are disclosed
-- ✅ Sample sizes provided for all claims
-- ✅ No black boxes, no proprietary secrets
-
-**Documentation:** See [docs/PHASE6_AUTHORITY.md](docs/PHASE6_AUTHORITY.md)
-
----
 
 ## License
 
