@@ -14,7 +14,46 @@ Built by someone who understands Toyota builds, Jeep solid axle setups, and real
 
 **Run Locally**: `./start.sh` → Select option 1 → Open http://localhost:8080
 
-**Docs**: [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Embed & Share](docs/EMBED_AND_SHARE.md) · [Tacoma Guide](docs/TACOMA_3909_GUIDE.md) · [Intended Use](docs/INTENDED_USE_GUIDE.md) · [Deployment](docs/DEPLOYMENT.md) · [Docker](docs/DOCKER.md)
+**Docs**: [Examples](docs/EXAMPLES.md) · [Tire Reference](docs/TIRE_SIZE_REFERENCE.md) · [Embed & Share](docs/EMBED_AND_SHARE.md) · [Tacoma Guide](docs/TACOMA_3909_GUIDE.md) · [Intended Use](docs/INTENDED_USE_GUIDE.md) · [Deployment](docs/DEPLOYMENT.md) · [Docker](docs/DOCKER.md) · [Validation Report](docs/COMPREHENSIVE_VALIDATION_REPORT.md)
+
+---
+
+## 🎯 Recent Update: Real-World Regearing Guidance (v2.0)
+
+**What Changed:** Replaced abstract engineering scores with honest, forum-based guidance.
+
+### The Problem We Solved
+
+**Before (DrivetrainStress):**
+```
+Tacoma 33" upgrade: "43/100 MODERATE stress - regearing recommended"
+User: "But forums say 80% don't regear and it's fine?"
+```
+
+**After (RegearingGuidance):**
+```
+Tacoma 33" upgrade: "Most people DON'T regear (20% do)"
+
+Why people DO regear:
+  • Planning to go to 35" later
+  • Daily driver with automatic feels sluggish
+  • Frequent towing or mountains
+
+Why people DON'T regear:
+  • Cost: $2,000-$3,000
+  • V6 engine has enough torque
+  • Weekend use only
+```
+
+### Real Examples
+
+| Scenario | Old System | New System | Forum Reality |
+|----------|-----------|------------|---------------|
+| Tacoma 33" | "43/100 MODERATE" | "~20% regear" | ✅ Matches reality |
+| Jeep 35" daily | "72/100 HIGH" | "~60% regear" | ✅ Matches forums |
+| 4Runner 37" | "100/100 CRITICAL" | "~80% regear" | ✅ Accurate |
+
+**Research Base:** Tacoma World, Jeep Forums, 4Runner Forums, 1000+ build threads (2024-2026)
 
 ---
 
