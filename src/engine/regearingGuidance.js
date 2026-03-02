@@ -28,18 +28,17 @@ export function getRegearingGuidance(params) {
     vehicleType = 'unknown'
   } = params;
 
-  // Determine the scenario based on diameter change
-  const absDiameterChange = Math.abs(diameterChangePct);
+  // Determine the scenario based on diameter change in INCHES (more consistent across different stock sizes)
   const absInchChange = Math.abs(diameterChangeInches);
 
   let scenario;
-  if (absDiameterChange < 2) {
+  if (absInchChange < 0.5) {
     scenario = 'minimal';
-  } else if (absDiameterChange < 5) {
+  } else if (absInchChange < 2.5) {
     scenario = 'small'; // ~33" tires (1-2" increase)
-  } else if (absDiameterChange < 12) {
+  } else if (absInchChange < 4.5) {
     scenario = 'moderate'; // 35" tires (3-4" increase)
-  } else if (absDiameterChange < 20) {
+  } else if (absInchChange < 7) {
     scenario = 'large'; // 37" tires (5-6" increase)
   } else {
     scenario = 'extreme'; // 40"+ tires (8"+ increase)
@@ -228,7 +227,7 @@ export function getGuidanceFromComparison(comparison, intendedUse = 'weekend_tra
 
   const params = {
     diameterChangePct: comparison.differences.diameter.percentage,
-    diameterChangeInches: comparison.differences.diameter.delta,
+    diameterChangeInches: comparison.differences.diameter.inches,
     effectiveGearRatioChangePct: comparison.drivetrainImpact.effectiveGearRatio.changePercentage,
     intendedUse: intendedUse,
     vehicleType: vehicleType
