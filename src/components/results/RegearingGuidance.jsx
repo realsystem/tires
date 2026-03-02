@@ -12,7 +12,6 @@ const RegearingGuidance = ({ guidance }) => {
     realityCheck,
     whyRegear,
     whyNotRegear,
-    costContext,
     recommendation,
     transmissionNote,
     forumSources
@@ -79,13 +78,6 @@ const RegearingGuidance = ({ guidance }) => {
           </ul>
         </div>
       </div>
-
-      {/* Cost Context */}
-      {costContext && (
-        <div className="cost-context">
-          <strong>Cost:</strong> {costContext}
-        </div>
-      )}
 
       {/* Transmission Note */}
       {transmissionNote && (

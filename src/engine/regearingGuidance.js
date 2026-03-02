@@ -54,7 +54,6 @@ export function getRegearingGuidance(params) {
     realityCheck: guidance.realityCheck,
     whyRegear: guidance.whyRegear,
     whyNotRegear: guidance.whyNotRegear,
-    costContext: guidance.costContext,
     recommendation: guidance.recommendation,
     transmissionNote: guidance.transmissionNote,
     forumSources: guidance.forumSources
@@ -80,10 +79,8 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
         ],
         whyNotRegear: [
           'Tire change is too small to matter',
-          'Performance impact is imperceptible',
-          'Not worth the $2,000-3,000 cost'
+          'Performance impact is imperceptible'
         ],
-        costContext: '$2,000-3,000 for parts + labor',
         recommendation: 'No regearing needed',
         transmissionNote: 'Automatic and manual transmissions both handle this fine.',
         forumSources: 'Forum consensus: "Not worth it for small changes"'
@@ -103,13 +100,11 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
           'Have a 4-cylinder engine (less torque to spare)'
         ],
         whyNotRegear: [
-          'Cost: $2,000-3,000+ for regearing',
           'V6/V8 engine has sufficient torque',
           'Weekend trail use only (not daily driver)',
           'Can live with 1-2 MPG loss and slightly slower acceleration',
           'Already have 4.10+ gears (not 3.73)'
         ],
-        costContext: '$2,000-3,000 for parts + labor — this is the #1 reason people skip regearing',
         recommendation: dailyDriver
           ? 'Optional. Most skip it, but dailydrivers benefit most if you do regear.'
           : 'Optional. Most people run 33s on stock gears for years with no issues.',
@@ -135,12 +130,10 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
         ],
         whyNotRegear: [
           'Weekend use only — can tolerate reduced power',
-          'Cost: $2,500-3,500 is a major investment',
           'Manual transmission — shifts manually, less issue',
           'Rock crawling — lower gearing is actually preferred',
           'Already have deep gears (4.56+)'
         ],
-        costContext: '$2,500-3,500 — weigh this against quality-of-life improvement',
         recommendation: dailyDriver
           ? 'Recommended for daily drivers. Most regear to avoid transmission hunting and power loss.'
           : rockCrawling
@@ -170,7 +163,6 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
           'Manual transmission with patience for very slow acceleration',
           'Temporary setup before going even bigger'
         ],
-        costContext: '$2,500-4,000 — expensive but almost necessary at this size',
         recommendation: 'Strongly recommended. Transmission problems are common without regearing at this size.',
         transmissionNote: 'Automatic transmissions will overheat and hunt. Manual transmissions barely tolerate this — expect very sluggish performance.',
         forumSources: '4Runner Forum: "37s on stock gears for a year — transmission was punchy, very sluggish"'
@@ -194,7 +186,6 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
           'Dedicated trailer queen (no street driving)',
           'Competition rock crawler only'
         ],
-        costContext: '$3,000-5,000+ — but necessary for any street use',
         recommendation: 'Essential. Do not drive on street without regearing.',
         transmissionNote: 'Automatic transmission WILL overheat and fail. Manual transmission will be dangerously underpowered.',
         forumSources: 'All forums: "Don\'t even think about running 40s without regearing"'
@@ -207,7 +198,6 @@ function getScenarioGuidance(scenario, intendedUse, vehicleType, inchChange) {
         realityCheck: 'Scenario not recognized',
         whyRegear: [],
         whyNotRegear: [],
-        costContext: 'Typical regearing costs $2,000-4,000',
         recommendation: 'Consult with experienced builders',
         transmissionNote: '',
         forumSources: ''
