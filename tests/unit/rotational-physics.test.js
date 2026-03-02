@@ -215,10 +215,14 @@ describe('Rotational Physics - Mathematical Verification (100% Confidence)', () 
       // Should be HIGH impact
       assert.strictEqual(result.changes.rotational_inertia.category, 'HIGH', 'Should be HIGH impact');
 
-      // Performance impact should show degradation
+      // Performance impact should show degradation (negative value)
       assert.ok(
-        result.performance_impact.acceleration.impact_pct > 3,
+        Math.abs(result.performance_impact.acceleration.impact_pct) > 3,
         'Should show significant acceleration impact'
+      );
+      assert.ok(
+        result.performance_impact.acceleration.impact_pct < 0,
+        'Acceleration impact should be negative (degradation)'
       );
     });
   });
@@ -284,14 +288,23 @@ describe('Rotational Physics - Mathematical Verification (100% Confidence)', () 
 
       const result = calculateRotationalImpact(current, newTire);
 
-      // Acceleration impact should be ~40% of rotational impact factor
-      const expectedAccelImpact = result.changes.rotational_inertia.factor * 0.4;
+      // Acceleration impact should be NEGATIVE of ~40% of rotational impact factor
+      // (positive rotational impact = degradation in acceleration performance)
+      const expectedAccelImpact = -result.changes.rotational_inertia.factor * 0.4;
       assertWithinTolerance(
         result.performance_impact.acceleration.impact_pct,
         expectedAccelImpact,
         0.1,
         'Acceleration impact formula'
       );
+
+      // For an upgrade (heavier tires), acceleration impact should be negative
+      if (result.changes.rotational_inertia.factor > 0) {
+        assert.ok(
+          result.performance_impact.acceleration.impact_pct < 0,
+          'Heavier tires should have negative acceleration impact (degradation)'
+        );
+      }
 
       // Should have description
       assert.ok(
