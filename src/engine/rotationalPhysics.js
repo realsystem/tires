@@ -75,14 +75,27 @@ export function getTireWeight(tireSize, diameter) {
  * - Rotational impact factor: (weightDeltaPct + diameterDeltaPct × 1.5) / 2
  *   (diameter weighted 1.5x because I = m × r², so radius has squared effect)
  *
- * @param {object} currentTire - Current tire object with { size, diameter }
- * @param {object} newTire - New tire object with { size, diameter }
+ * @param {object} currentTire - Current tire object with { size, diameter, weight }
+ * @param {object} newTire - New tire object with { size, diameter, weight }
  * @returns {object} Detailed rotational impact analysis
  */
 export function calculateRotationalImpact(currentTire, newTire) {
-  // Get tire weights
-  const currentWeight = getTireWeight(currentTire.size, currentTire.diameter);
-  const newWeight = getTireWeight(newTire.size, newTire.diameter);
+  // Use provided weights (from tireCalculator) to ensure consistency
+  // Fall back to database lookup only if weights not provided
+  const currentWeight = currentTire.weight !== undefined
+    ? {
+        weight_lbs: currentTire.weight,
+        confidence: currentTire.isEstimated ? 'low' : 'high',
+        source: currentTire.isEstimated ? 'estimated from tire size' : 'user-provided'
+      }
+    : getTireWeight(currentTire.size, currentTire.diameter);
+  const newWeight = newTire.weight !== undefined
+    ? {
+        weight_lbs: newTire.weight,
+        confidence: newTire.isEstimated ? 'low' : 'high',
+        source: newTire.isEstimated ? 'estimated from tire size' : 'user-provided'
+      }
+    : getTireWeight(newTire.size, newTire.diameter);
 
   // Calculate deltas
   const weightDelta = newWeight.weight_lbs - currentWeight.weight_lbs;
