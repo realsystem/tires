@@ -38,12 +38,6 @@ const RegearingGuidance = ({ guidance }) => {
       {/* Consensus Header */}
       <div className={`guidance-header likelihood-${likelihoodLevel}`}>
         <div className="consensus-statement">
-          <div className="consensus-icon">
-            {likelihoodLevel === 'very-high' && '🔴'}
-            {likelihoodLevel === 'high' && '🟠'}
-            {likelihoodLevel === 'moderate' && '🟡'}
-            {(likelihoodLevel === 'low' || likelihoodLevel === 'very-low') && '🟢'}
-          </div>
           <div className="consensus-text">
             <h4>{consensus}</h4>
             <div className="likelihood-badge">
@@ -89,14 +83,14 @@ const RegearingGuidance = ({ guidance }) => {
       {/* Cost Context */}
       {costContext && (
         <div className="cost-context">
-          <strong>💰 Cost:</strong> {costContext}
+          <strong>Cost:</strong> {costContext}
         </div>
       )}
 
       {/* Transmission Note */}
       {transmissionNote && (
         <div className="transmission-note">
-          <strong>⚙️ Transmission Type Matters:</strong>
+          <strong>Transmission Type Matters:</strong>
           <p>{transmissionNote}</p>
         </div>
       )}

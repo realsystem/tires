@@ -10,7 +10,7 @@ Built by someone who understands Toyota builds, Jeep solid axle setups, and real
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](package.json)
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](vite.config.js)
 
-**🌐 Live Demo**: https://overlandn.com/tires/ · https://realsystem.github.io/tires/
+**Live Demo**: https://overlandn.com/tires/ · https://realsystem.github.io/tires/
 
 **Run Locally**: `./start.sh` → Select option 1 → Open http://localhost:8080
 
@@ -18,7 +18,7 @@ Built by someone who understands Toyota builds, Jeep solid axle setups, and real
 
 ---
 
-## 🎯 Recent Update: Real-World Regearing Guidance (v2.0)
+## Recent Update: Real-World Regearing Guidance (v2.0)
 
 **What Changed:** Replaced abstract engineering scores with honest, forum-based guidance.
 

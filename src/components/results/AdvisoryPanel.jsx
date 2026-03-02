@@ -99,7 +99,7 @@ const AdvisoryPanel = ({ advisory, comparison, formData }) => {
 
             {warnings.advisory.length > 0 && (
               <div className="warning-group advisory">
-                <h4>💡 Advisory Notes</h4>
+                <h4>Advisory Notes</h4>
                 {warnings.advisory.map((warn, i) => (
                   <div key={i} className="warning-item">
                     <div className="warning-header">
@@ -189,7 +189,7 @@ const AdvisoryPanel = ({ advisory, comparison, formData }) => {
 
             {recommendations.length > 0 && (
               <div className="recommendations-section">
-                <h4>📋 Recommended Modifications</h4>
+                <h4>Recommended Modifications</h4>
                 {recommendations.map((rec, i) => (
                   <div key={i} className={`recommendation-card priority-${rec.priority}`}>
                     <div className="rec-header">

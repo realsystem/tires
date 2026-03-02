@@ -108,10 +108,10 @@ const ResultsDisplay = ({ results, onReset }) => {
                 <div className="export-section">
                   <div className="export-section-title">Share on Forums</div>
                   <button onClick={handleCopyForumText} className="export-option export-highlight">
-                    📋 Copy for Forum (Plain Text)
+                    Copy for Forum (Plain Text)
                   </button>
                   <button onClick={handleCopyBBCode} className="export-option">
-                    📋 Copy as BBCode
+                    Copy as BBCode
                   </button>
                 </div>
                 <div className="export-divider"></div>

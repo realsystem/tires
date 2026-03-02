@@ -17,7 +17,7 @@ const WeightLoadAnalysis = ({ weightAnalysis, loadCapacityAnalysis }) => {
             <h4>Unsprung Weight Impact</h4>
             {weightAnalysis.isEstimate && (
               <span className="estimate-badge" title="Weights estimated from tire size and type. For precise analysis, enter actual tire weights in Advanced Tire Specifications.">
-                📊 Estimated Values
+                Estimated Values
               </span>
             )}
           </div>

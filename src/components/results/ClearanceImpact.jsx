@@ -33,7 +33,7 @@ const ClearanceImpact = ({ clearance, differences }) => {
             <p className="clearance-note">{liftRecommendation}</p>
             {modificationsNote && (
               <p className="clearance-mods-note">
-                💡 {modificationsNote}
+                {modificationsNote}
               </p>
             )}
           </div>
