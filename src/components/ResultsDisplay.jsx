@@ -8,7 +8,7 @@ import AdvisoryPanel from './results/AdvisoryPanel';
 import VisualComparison from './results/VisualComparison';
 import WeightLoadAnalysis from './results/WeightLoadAnalysis';
 import RotationalPhysics from './results/RotationalPhysics';
-import DrivetrainStress from './results/DrivetrainStress';
+import RegearingGuidance from './results/RegearingGuidance';
 import Toast from './Toast';
 import EmbedCodeGenerator from './EmbedCodeGenerator';
 import { exportToJSON, exportToCSV, exportToText } from '../utils/exportImport';
@@ -292,8 +292,8 @@ const ResultsDisplay = ({ results, onReset }) => {
                   />
                 )}
 
-                {/* Always show DrivetrainStress when available */}
-                <DrivetrainStress drivetrainStress={comparison.drivetrainStress} />
+                {/* Real-world regearing guidance based on forum data */}
+                <RegearingGuidance guidance={comparison.regearingGuidance} />
               </>
             ) : (
               <div className="no-data-message">
