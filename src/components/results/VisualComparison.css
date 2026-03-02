@@ -81,6 +81,21 @@
   fill: var(--color-accent);
 }
 
+/* Tire diameter labels */
+.tire-label {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.tire-label.current {
+  fill: var(--color-text-muted);
+}
+
+.tire-label.new {
+  fill: var(--color-accent);
+}
+
 /* Stats section */
 .comparison-stats {
   display: grid;
