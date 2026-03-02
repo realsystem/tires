@@ -130,7 +130,8 @@ export function calculateRotationalImpact(currentTire, newTire) {
 
   // Calculate approximate acceleration impact
   // Simplified model: 1% rotational inertia increase ≈ 0.3-0.5% slower 0-60 time
-  const accelImpactPct = rotationalImpactFactor * 0.4;
+  // NEGATIVE value = degradation (slower acceleration)
+  const accelImpactPct = -rotationalImpactFactor * 0.4;
 
   // Build detailed result
   return {
@@ -166,15 +167,17 @@ export function calculateRotationalImpact(currentTire, newTire) {
     performance_impact: {
       acceleration: {
         impact_pct: accelImpactPct,
-        description: accelImpactPct > 3
-          ? `Approximately ${Math.abs(accelImpactPct).toFixed(1)}% slower acceleration (e.g., 8.0s 0-60 → ${(8.0 * (1 + accelImpactPct/100)).toFixed(1)}s)`
+        description: Math.abs(accelImpactPct) > 3
+          ? accelImpactPct < 0
+            ? `Approximately ${Math.abs(accelImpactPct).toFixed(1)}% slower acceleration (e.g., 8.0s 0-60 → ${(8.0 * (1 - accelImpactPct/100)).toFixed(1)}s)`
+            : `Approximately ${Math.abs(accelImpactPct).toFixed(1)}% faster acceleration (e.g., 8.0s 0-60 → ${(8.0 * (1 - accelImpactPct/100)).toFixed(1)}s)`
           : 'Negligible change in acceleration times'
       },
       braking: {
-        impact_pct: rotationalImpactFactor * 0.3,
-        description: rotationalImpactFactor > 10
+        impact_pct: -rotationalImpactFactor * 0.3,
+        description: Math.abs(rotationalImpactFactor) > 10
           ? 'Increased braking distances; brake upgrade recommended'
-          : rotationalImpactFactor > 5
+          : Math.abs(rotationalImpactFactor) > 5
           ? 'Slightly increased braking effort required'
           : 'No significant change in braking performance'
       },
