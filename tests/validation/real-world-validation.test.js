@@ -12,8 +12,8 @@
 
 import { test, describe } from 'node:test';
 import assert from 'node:assert';
-import { parseTireSize } from '../src/engine/tireParser.js';
-import { calculateTireComparison } from '../src/engine/tireCalculator.js';
+import { parseTireSize } from '../../src/engine/tireParser.js';
+import { calculateTireComparison } from '../../src/engine/tireCalculator.js';
 
 /**
  * Helper function to calculate percentage error
