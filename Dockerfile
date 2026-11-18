@@ -14,6 +14,10 @@ RUN npm ci
 # Copy source code
 COPY . .
 
+# Support button link (optional): docker build --build-arg SUPPORT_URL=https://...
+ARG SUPPORT_URL=""
+ENV SUPPORT_URL=$SUPPORT_URL
+
 # Build the application
 RUN npm run build
 

@@ -87,6 +87,21 @@
   color: var(--color-text-muted);
 }
 
+.app-footer .support {
+  padding-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-footer .support p {
+  margin: 0 0 var(--spacing-sm);
+}
+
+.app-footer .support .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .disclaimer {
   font-size: var(--font-size-xs);
   font-style: italic;
