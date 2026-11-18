@@ -6,7 +6,12 @@ import { calculateTireComparison } from './engine/tireCalculator';
 import { generateRegearRecommendations } from './engine/regearEngine';
 import { generateAdvisory } from './engine/advisoryEngine';
 import { importFromJSON } from './utils/exportImport';
+import { safeSupportUrl } from './utils/supportUrl';
 import './styles/App.css';
+
+// Where the Support button points. Set at build time with the SUPPORT_URL
+// environment variable; when empty or invalid, a disabled placeholder is shown.
+const SUPPORT_URL = safeSupportUrl(typeof __SUPPORT_URL__ !== 'undefined' ? __SUPPORT_URL__ : '');
 
 /**
  * Calculate drivetrain impact when BOTH tires and gears are changing
@@ -258,6 +263,14 @@ function App() {
       </main>
 
       <footer className="app-footer">
+        <div className="support">
+          <p>If this tool was useful, consider supporting it.</p>
+          {SUPPORT_URL ? (
+            <a className="btn btn-primary" href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">Support this tool</a>
+          ) : (
+            <button type="button" className="btn btn-secondary" disabled title="Coming soon">Support this tool</button>
+          )}
+        </div>
         <p>Built for overlanders and off-road enthusiasts. All calculations use industry-standard formulas.</p>
         <p className="disclaimer">Always verify clearance and consult professionals for major modifications.</p>
       </footer>

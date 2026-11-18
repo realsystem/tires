@@ -21,6 +21,14 @@ Your app will be live at: **https://realsystem.github.io/tires/**
    - Live URL: https://realsystem.github.io/tires/
    - Updates automatically on every push to main
 
+### Support button
+
+The footer's **Support this tool** button points at the `SUPPORT_URL` build
+setting (an https link). In GitHub: Settings → Secrets and variables → Actions → add
+`SUPPORT_URL` as a secret or a variable (a secret is read first). Locally:
+`SUPPORT_URL=https://… npm run build`; with Docker: `SUPPORT_URL=https://… docker-compose build`.
+With no value a disabled placeholder is shown; the URL is never kept in the source.
+
 ### Manual Deploy:
 ```bash
 git push origin main

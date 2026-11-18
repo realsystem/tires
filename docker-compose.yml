@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        SUPPORT_URL: ${SUPPORT_URL:-}
     container_name: tire-calculator
     ports:
       - "8080:80"
