@@ -43,3 +43,10 @@
 - `npm run build` succeeds (if you could not run it, say so).
 - Engine or data changes: add/adjust a test in `tests/unit/`, and check the UI in `npm run dev` for CSV or UI changes.
 - New env var, deploy or Docker change: update docs/DEPLOYMENT.md.
+
+## GitHub Free-plan limits
+This repo is public, so GitHub Actions minutes are free here. The account is on the GitHub Free plan and these limits still apply.
+
+- **Workflows:** keep jobs lean. Use `ubuntu-latest`, add `concurrency` with `cancel-in-progress: true` and `timeout-minutes` to new jobs, and set `retention-days` (3-7) on uploaded artifacts. The account-wide cap is 20 concurrent jobs (5 macOS); extra jobs queue.
+- **Files:** never commit a file over 50 MiB (GitHub warns) or 100 MiB (the push is blocked). Keep datasets, video, model weights and build output out of git; use Git LFS only if truly needed.
+- **GitHub API:** 5,000 requests/hour authenticated (60 unauthenticated), search 30/min, plus secondary limits. Scripts or agents that call the API must paginate, use conditional requests, and not fan out across repos in parallel.
